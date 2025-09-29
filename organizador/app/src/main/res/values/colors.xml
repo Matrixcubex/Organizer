@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>       <!-- Azul Material -->
+    <color name="colorPrimaryDark">#303F9F</color>   <!-- Azul oscuro -->
+    <color name="colorAccent">#FF4081</color>
+    <color name="purple_200">#FFBB86FC</color>  <!-- Color morado claro -->
+    <color name="purple_500">#FF6200EE</color>  <!-- Color morado medio -->
+    <color name="black">#FF000000</color>       <!-- Color negro -->
+    <color name="white">#FFFFFFFF</color>       <!-- Color blanco -->
+</resources>

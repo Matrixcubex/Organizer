@@ -1,0 +1,28 @@
+[versions]
+agp = "7.4.2"
+kotlin = "1.8.0"
+core = "1.6.0"
+appcompat = "1.3.1"
+material = "1.4.0"
+constraint = "2.1.0"
+sqlite = "2.2.0"
+desugar = "2.0.4"
+gms-auth = "21.0.0"          # o la que ya uses
+gms-drive = "17.0.0"
+google-api-client = "1.34.2"         # última estable
+drive-rest       = "v3-rev20240515-2.0.0"  # ó la más reciente
+# última estable  :contentReference[oaicite:0]{index=0}
+[libraries]
+google-api-client-android = { group = "com.google.api-client", name = "google-api-client-android", version.ref = "google-api-client" }
+google-api-services-drive = { group = "com.google.apis",       name = "google-api-services-drive", version.ref = "drive-rest" }
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-constraint = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraint" }
+androidx-sqlite = { group = "androidx.sqlite", name = "sqlite-ktx", version.ref = "sqlite" }
+desugar-jdk = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar" }
+gms-auth  = { group = "com.google.android.gms", name = "play-services-auth",  version.ref = "gms-auth" }
+gms-drive = { group = "com.google.android.gms", name = "play-services-drive", version.ref = "gms-drive" }
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

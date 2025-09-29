@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="event_types_array">
+        <item>Todos</item>
+        <item>Cita</item>
+        <item>Junta</item>
+        <item>Entrega</item>
+        <item>Examen</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="reminder_options">
+        <item>Sin recordatorio</item>
+        <item>10 minutos antes</item>
+        <item>1 día antes</item>
+    </string-array>
+
+    <string-array name="status_options">
+        <item>Todos</item>
+        <item>Pendiente</item>
+        <item>Realizado</item>
+        <item>Aplazado</item>
+    </string-array>
+</resources>

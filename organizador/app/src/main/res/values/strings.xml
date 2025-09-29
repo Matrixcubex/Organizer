@@ -1,0 +1,61 @@
+<resources>
+
+    <!-- Nombres de la app y menú -->
+    <string name="home">Inicio</string>
+    <string name="add_event">Añadir Evento</string>
+    <string name="consult_events">Consultar Eventos</string>
+    <string name="backup">Respaldo</string>
+    <string name="restore">Restaurar</string>
+    <string name="about">Acerca de</string>
+    <string name="exit">Salir</string>
+    <string name="app_name">Organizer</string>
+    <string name="menu_add">Añadir Evento</string>
+    <string name="menu_consult">Consultar Eventos</string>
+    <string name="menu_backup">Respaldo</string>
+    <string name="menu_restore">Restaurar</string>
+    <string name="menu_about">Acerca de</string>
+    <string name="menu_exit">Salir</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_add_event">Añadir Evento</string>
+    <string name="title_consult">Consultar</string>
+    <!-- Tipos de eventos -->
+    <string name="event_type_meeting">Cita</string>
+    <string name="event_type_gathering">Junta</string>
+    <string name="event_type_project">Entrega de Proyecto</string>
+    <string name="event_type_exam">Examen</string>
+    <string name="event_type_other">Otros</string>
+    <string name="view_location">Ver ubicación</string>
+    <string name="save_event">Guardar evento</string>
+    <string name="event_type">Tipo de evento</string>
+    <string name="consult_fragment">Consultar Eventos</string>
+
+    <!-- Estados -->
+    <string name="status_pending">Pendiente</string>
+    <string name="status_completed">Realizado</string>
+    <string name="status_postponed">Aplazado</string>
+
+    <!-- Recordatorios -->
+    <string name="reminder_none">Sin recordatorio</string>
+    <string name="reminder_10min">10 minutos antes</string>
+    <string name="reminder_1day">1 día antes</string>
+
+    <!-- Mensajes comunes -->
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_view_location">Ver Ubicación</string>
+    <string name="hint_description">Descripción del evento</string>
+
+    <!-- Errores/Validaciones -->
+    <string name="error_required_field">Este campo es requerido</string>
+    <string name="error_invalid_date">Fecha inválida</string>
+    <string name="about_description">Organizador de eventos es una aplicación para gestionar tus citas, juntas y recordatorios importantes.</string>
+    <string name="location_selected">Ubicación seleccionada</string>
+    <string name="error_title_required">Ingrese un título</string>
+    <string name="error_date_required">Seleccione una fecha</string>
+    <string name="error_time_required">Seleccione una hora</string>
+    <string name="error_contact_required">Seleccione un contacto</string>
+    <string name="event_saved">Evento guardado</string>
+    <string name="select_date">Seleccionar fecha</string>
+    <string name="select_time">Seleccionar hora</string>
+
+</resources>

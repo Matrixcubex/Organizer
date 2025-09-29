@@ -1,0 +1,23 @@
+<!-- app/src/main/res/menu/main_drawer_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/addEventFragment"
+        android:icon="@drawable/ic_add"
+        android:title="@string/add_event"/>
+    <item
+        android:id="@+id/consultFragment"
+        android:icon="@drawable/ic_search"
+        android:title="@string/consult_events"/>
+    <item
+        android:id="@+id/backupFragment"
+        android:icon="@drawable/ic_backup"
+        android:title="@string/backup"/>
+    <item
+        android:id="@+id/aboutFragment"
+        android:icon="@drawable/ic_about"
+        android:title="@string/about"/>
+    <item
+        android:id="@+id/exit_app"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/exit"/>
+</menu>
