@@ -1,0 +1,277 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.organizer"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml
+10
+11    <!-- Permisos deben estar aquí, antes de <application> -->
+12    <uses-permission android:name="android.permission.READ_CONTACTS" />
+12-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:6:5-72
+12-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:6:22-69
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:7:5-67
+13-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:7:22-64
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:8:5-79
+14-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:8:22-76
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:9:5-79
+15-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:9:22-76
+16    <uses-permission
+16-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:10:5-11:38
+17        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+17-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:10:22-78
+18        android:maxSdkVersion="28" />
+18-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:11:9-35
+19    <uses-permission
+19-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:12:5-13:38
+20        android:name="android.permission.READ_EXTERNAL_STORAGE"
+20-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:12:22-77
+21        android:maxSdkVersion="32" />
+21-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:13:9-35
+22    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+22-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:14:5-77
+22-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:14:22-74
+23
+24    <uses-feature
+24-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:26:5-28:35
+25        android:glEsVersion="0x00020000"
+25-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:27:9-41
+26        android:required="true" />
+26-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:28:9-32
+27
+28    <queries>
+28-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:30:5-34:15
+29
+30        <!-- Needs to be explicitly declared on Android R+ -->
+31        <package android:name="com.google.android.apps.maps" />
+31-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:33:9-64
+31-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:33:18-61
+32    </queries>
+33
+34    <permission
+34-->[androidx.core:core:1.9.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\2a8b8ea924beb3da5bcb147eb50ee9e3\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+35        android:name="com.example.organizer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+35-->[androidx.core:core:1.9.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\2a8b8ea924beb3da5bcb147eb50ee9e3\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+36        android:protectionLevel="signature" />
+36-->[androidx.core:core:1.9.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\2a8b8ea924beb3da5bcb147eb50ee9e3\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+37
+38    <uses-permission android:name="com.example.organizer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+38-->[androidx.core:core:1.9.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\2a8b8ea924beb3da5bcb147eb50ee9e3\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+38-->[androidx.core:core:1.9.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\2a8b8ea924beb3da5bcb147eb50ee9e3\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+39
+40    <application
+40-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:16:5-58:19
+41        android:allowBackup="true"
+41-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:18:9-35
+42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+42-->[androidx.core:core:1.9.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\2a8b8ea924beb3da5bcb147eb50ee9e3\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+43        android:debuggable="true"
+44        android:extractNativeLibs="false"
+45        android:icon="@mipmap/ic_launcher"
+45-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:19:9-43
+46        android:label="@string/app_name"
+46-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:20:9-41
+47        android:roundIcon="@mipmap/ic_launcher_round"
+47-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:21:9-54
+48        android:supportsRtl="true"
+48-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:22:9-35
+49        android:testOnly="true"
+50        android:theme="@style/Theme.Organizer" >
+50-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:23:9-47
+51        <activity android:name="com.example.organizer.MainActivity" >
+51-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:24:9-29:20
+51-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:24:19-47
+52            <intent-filter>
+52-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:25:13-28:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:26:17-69
+53-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:26:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:27:17-77
+55-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:27:27-74
+56            </intent-filter>
+57        </activity>
+58        <activity android:name="com.example.organizer.ActivitiesActivity" />
+58-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:30:9-56
+58-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:30:19-53
+59        <activity android:name="com.example.organizer.ChatActivity" />
+59-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:31:9-50
+59-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:31:19-47
+60        <activity
+60-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:33:9-40:20
+61            android:name="com.example.organizer.ui.MainActivity"
+61-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:34:13-44
+62            android:exported="true" >
+62-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:35:13-36
+63            <intent-filter>
+63-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:25:13-28:29
+64                <action android:name="android.intent.action.MAIN" />
+64-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:26:17-69
+64-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:26:25-66
+65
+66                <category android:name="android.intent.category.LAUNCHER" />
+66-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:27:17-77
+66-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:27:27-74
+67            </intent-filter>
+68        </activity>
+69
+70        <meta-data
+70-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:42:9-44:70
+71            android:name="com.google.android.geo.API_KEY"
+71-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:43:13-58
+72            android:value="AIzaSyDxSCysA9I_FyYYBsUXs0rRPmySqBjZfX8" />
+72-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:44:13-68
+73
+74        <activity
+74-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:46:9-48:70
+75            android:name="com.example.organizer.utils.MapPickerActivity"
+75-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:47:13-52
+76            android:theme="@style/Theme.MaterialComponents.Dialog" />
+76-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:48:13-67
+77        <activity android:name="com.example.organizer.ActivitiesActivity" />
+77-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:30:9-56
+77-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:30:19-53
+78        <activity android:name="com.example.organizer.ChatActivity" />
+78-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:31:9-50
+78-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:31:19-47
+79        <activity android:name="com.example.organizer.AgendaActivity" />
+79-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:51:9-52
+79-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:51:19-49
+80        <activity android:name="com.example.organizer.RecordatorioActivity" />
+80-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:52:9-58
+80-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:52:19-55
+81        <activity android:name="com.example.organizer.UbicacionActivity" />
+81-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:53:9-55
+81-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:53:19-52
+82        <activity android:name="com.example.organizer.TelefonoActivity" />
+82-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:54:9-54
+82-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:54:19-51
+83
+84        <!-- Receiver para notificaciones -->
+85        <receiver android:name="com.example.organizer.receiver.EventNotificationReceiver" />
+85-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:57:9-72
+85-->C:\Proyecto\orgnizador\app\src\main\AndroidManifest.xml:57:19-69
+86
+87        <activity
+87-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:23:9-27:75
+88            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+88-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:24:13-93
+89            android:excludeFromRecents="true"
+89-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:25:13-46
+90            android:exported="false"
+90-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:26:13-37
+91            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+91-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:27:13-72
+92        <!--
+93            Service handling Google Sign-In user revocation. For apps that do not integrate with
+94            Google Sign-In, this service will never be started.
+95        -->
+96        <service
+96-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:33:9-37:51
+97            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+97-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:34:13-89
+98            android:exported="true"
+98-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:35:13-36
+99            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+99-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:36:13-107
+100            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
+100-->[com.google.android.gms:play-services-auth:21.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\339dc1fbe909cb4352c2ff10e4a1eb61\transformed\play-services-auth-21.0.0\AndroidManifest.xml:37:13-48
+101        <uses-library
+101-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
+102            android:name="org.apache.http.legacy"
+102-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:40:13-50
+103            android:required="false" />
+103-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\039a95f05fd938a118bd5baa08bd97ff\transformed\play-services-maps-18.1.0\AndroidManifest.xml:41:13-37
+104
+105        <activity
+105-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3bad02e1ae236a0daaa44272fa80293a\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+106            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+106-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3bad02e1ae236a0daaa44272fa80293a\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+107            android:exported="false"
+107-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3bad02e1ae236a0daaa44272fa80293a\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+108            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+108-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3bad02e1ae236a0daaa44272fa80293a\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+109
+110        <meta-data
+110-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\a242c931802cb0d79ca97c40ea8d1377\transformed\play-services-basement-18.2.0\AndroidManifest.xml:21:9-23:69
+111            android:name="com.google.android.gms.version"
+111-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\a242c931802cb0d79ca97c40ea8d1377\transformed\play-services-basement-18.2.0\AndroidManifest.xml:22:13-58
+112            android:value="@integer/google_play_services_version" />
+112-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\a242c931802cb0d79ca97c40ea8d1377\transformed\play-services-basement-18.2.0\AndroidManifest.xml:23:13-66
+113
+114        <provider
+114-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+115            android:name="androidx.startup.InitializationProvider"
+115-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+116            android:authorities="com.example.organizer.androidx-startup"
+116-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+117            android:exported="false" >
+117-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+118            <meta-data
+118-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+119                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+119-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+120                android:value="androidx.startup" />
+120-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+121            <meta-data
+121-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\adria\.gradle\caches\8.11.1\transforms\1ab105db6bff68211a09d080e2978406\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+122                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+122-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\adria\.gradle\caches\8.11.1\transforms\1ab105db6bff68211a09d080e2978406\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+123                android:value="androidx.startup" />
+123-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\adria\.gradle\caches\8.11.1\transforms\1ab105db6bff68211a09d080e2978406\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+124            <meta-data
+124-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+125                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+125-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+126                android:value="androidx.startup" />
+126-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+127        </provider>
+128
+129        <receiver
+129-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+130            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+131            android:directBootAware="false"
+131-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+132            android:enabled="true"
+132-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+133            android:exported="true"
+133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+134            android:permission="android.permission.DUMP" >
+134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+135            <intent-filter>
+135-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+136                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+137            </intent-filter>
+138            <intent-filter>
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+139                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+140            </intent-filter>
+141            <intent-filter>
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+142                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+143            </intent-filter>
+144            <intent-filter>
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+145                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+146            </intent-filter>
+147        </receiver>
+148    </application>
+149
+150</manifest>

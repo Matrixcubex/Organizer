@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/fragment_about.xml",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_about.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/fragment_backup.xml",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_backup.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_main.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_activities.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_activities.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_ubicacion.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_ubicacion.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/fragment_home.xml",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_agenda.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_agenda.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/item_event_table.xml",
+        "source": "com.example.organizer.app-main-7:/layout/item_event_table.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/fragment_consult.xml",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_consult.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_recordatorio.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_recordatorio.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_telefono.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_telefono.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/dialog_map_picker.xml",
+        "source": "com.example.organizer.app-main-7:/layout/dialog_map_picker.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/item_event.xml",
+        "source": "com.example.organizer.app-main-7:/layout/item_event.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/fragment_add_event.xml",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_add_event.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_chat.xml",
+        "source": "com.example.organizer.app-main-7:/layout/activity_chat.xml"
+    }
+]

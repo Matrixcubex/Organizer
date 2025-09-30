@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="16dp"
+    tools:context=".ActivitiesActivity">
+
+    <!-- Header con botón volver -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Volver"
+            android:background="@android:color/transparent"
+            android:textColor="#2196F3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Actividades"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Grid de 2x2 para los botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Fila 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Botón Agenda -->
+            <ImageButton
+                android:id="@+id/btn_agenda"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_agenda"
+                android:background="@drawable/btn_primary_background"
+                android:scaleType="centerInside" />
+
+            <!-- Botón Recordatorio -->
+            <ImageButton
+                android:id="@+id/btn_recordatorio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_recordatorio"
+                android:background="@drawable/btn_secondary_background"
+                android:scaleType="centerInside" />
+
+        </LinearLayout>
+
+        <!-- Fila 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Botón Mi Ubicación -->
+            <ImageButton
+                android:id="@+id/btn_ubicacion"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_ubicacion"
+                android:background="@drawable/btn_primary_background"
+                android:scaleType="centerInside" />
+
+            <!-- Botón Contactar a -->
+            <ImageButton
+                android:id="@+id/btn_contactar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_contactar"
+                android:background="@drawable/btn_secondary_background"
+                android:scaleType="centerInside" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

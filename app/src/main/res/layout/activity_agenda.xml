@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Volver"
+            android:background="@android:color/transparent"
+            android:textColor="#2196F3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Agenda"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Campos del formulario -->
+    <EditText
+        android:id="@+id/et_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del evento"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/et_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora (ej: 14:30)"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/et_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Descripción"
+        android:gravity="top"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp" />
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar en Calendario"
+        android:textSize="16sp"
+        android:background="@drawable/btn_primary_background"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
