@@ -36,6 +36,7 @@
         android:label="@string/about"
         tools:layout="@layout/fragment_about"/>
 
+
     <!-- Acciones de navegación -->
     <action
         android:id="@+id/action_home_to_add"

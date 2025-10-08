@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
+import com.example.organizer.ui.consult.ConsultActivity  // ← AÑADE ESTE IMPORT
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnActivate: ImageButton
     private lateinit var btnActivities: ImageButton
     private lateinit var btnChat: ImageButton
+    private lateinit var btnConsult: ImageButton  // NUEVO
     private lateinit var tvStatus: TextView
 
     private var isAssistantActive = true
@@ -24,10 +27,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        // CAMBIA Button por ImageButton
         btnActivate = findViewById(R.id.btn_activate)
         btnActivities = findViewById(R.id.btn_activities)
         btnChat = findViewById(R.id.btn_chat)
+        btnConsult = findViewById(R.id.btn_consult)  // NUEVO
         tvStatus = findViewById(R.id.tv_status)
 
         updateUI()
@@ -47,6 +50,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ChatActivity::class.java)
             startActivity(intent)
         }
+
+        // NUEVO: Botón para consultar eventos
+        btnConsult.setOnClickListener {
+            val intent = Intent(this, ConsultActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun toggleVoiceAssistant() {
@@ -57,11 +66,8 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI() {
         if (isAssistantActive) {
             tvStatus.text = "Asistente activo - Di 'AcompañaMe'"
-            // Si quieres cambiar la imagen según el estado:
-            // btnActivate.setImageResource(R.drawable.ic_activate_active)
         } else {
             tvStatus.text = "Asistente pausado - Toca para activar"
-            // btnActivate.setImageResource(R.drawable.ic_activate_inactive)
         }
     }
 }

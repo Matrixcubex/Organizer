@@ -75,17 +75,28 @@
                 android:scaleType="centerInside" />
 
             <!-- Botón Chat -->
+
             <ImageButton
                 android:id="@+id/btn_chat"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:src="@drawable/ic_chat"
+                android:layout_weight="1"
                 android:background="@drawable/btn_primary_background"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_chat" />
+
+            <ImageButton
+                android:id="@+id/btn_consult"
+                android:layout_width="86dp"
+                android:layout_height="80dp"
+                android:background="@drawable/btn_primary_background"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_evnt" />
 
         </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>

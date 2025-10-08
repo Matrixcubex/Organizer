@@ -25,6 +25,7 @@ drawable ic_chat
 drawable ic_cita
 drawable ic_consult
 drawable ic_contactar
+drawable ic_evnt
 drawable ic_examen
 drawable ic_exit
 drawable ic_home
@@ -63,6 +64,7 @@ id btn_agenda
 id btn_back
 id btn_buscar
 id btn_chat
+id btn_consult
 id btn_contactar
 id btn_guardar
 id btn_recordatorio
@@ -90,6 +92,7 @@ id eventType
 id eventsRecyclerView
 id exit_app
 id filterButton
+id fragment_container
 id homeFragment
 id locationButton
 id map
@@ -105,10 +108,12 @@ id titleEditText
 id tv_status
 id typeFilterSpinner
 id typeSpinner
+id typing_indicator
 id versionText
 layout activity_activities
 layout activity_agenda
 layout activity_chat
+layout activity_consult
 layout activity_main
 layout activity_recordatorio
 layout activity_telefono

@@ -52,6 +52,9 @@
         <activity android:name=".RecordatorioActivity" />
         <activity android:name=".UbicacionActivity" />
         <activity android:name=".TelefonoActivity" />
+        <activity
+            android:name=".ui.consult.ConsultActivity"
+            android:label="Consultar Eventos" />
 
         <!-- Receiver para notificaciones -->
         <receiver android:name=".receiver.EventNotificationReceiver" />

@@ -138,11 +138,14 @@ class ConsultFragment : Fragment() {
     }
 
     private fun showContactDetails(contactId: String) {
-        // Implementar lógica para mostrar detalles del contacto
+        Toast.makeText(requireContext(), "Contacto ID: $contactId", Toast.LENGTH_SHORT).show()
+        // Para luego: abrir detalles del contacto en la agenda
     }
 
     private fun showLocationOnMap(location: Pair<Double, Double>) {
-        // Implementar lógica para mostrar mapa con la ubicación
+        val (lat, lng) = location
+        Toast.makeText(requireContext(), "Ubicación: $lat, $lng", Toast.LENGTH_SHORT).show()
+        // Para luego: abrir Google Maps con la ubicación
     }
 
     override fun onDestroyView() {

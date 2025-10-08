@@ -3030,6 +3030,7 @@ drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_consult
 drawable ic_contactar
+drawable ic_evnt
 drawable ic_examen
 drawable ic_exit
 drawable ic_home
@@ -3251,6 +3252,7 @@ id btn_agenda
 id btn_back
 id btn_buscar
 id btn_chat
+id btn_consult
 id btn_contactar
 id btn_guardar
 id btn_recordatorio
@@ -3374,6 +3376,7 @@ id fixed
 id flip
 id floating
 id forever
+id fragment_container
 id fragment_container_view_tag
 id frost
 id fullscreen_header
@@ -3673,6 +3676,7 @@ id triangle
 id tv_status
 id typeFilterSpinner
 id typeSpinner
+id typing_indicator
 id unchecked
 id uniform
 id unlabeled
@@ -3816,6 +3820,7 @@ layout abc_tooltip
 layout activity_activities
 layout activity_agenda
 layout activity_chat
+layout activity_consult
 layout activity_main
 layout activity_recordatorio
 layout activity_telefono

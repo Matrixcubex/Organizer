@@ -26,6 +26,7 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="white">#FFFFFFFF</color>
+    <item name="typing_indicator" type="id"/>
     <string name="about">Acerca de</string>
     <string name="about_description">Organizador de eventos es una aplicación para gestionar tus citas, juntas y recordatorios importantes.</string>
     <string name="add_event">Añadir Evento</string>

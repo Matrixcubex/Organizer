@@ -1,266 +1,278 @@
 [
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_dialog_map_picker.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\dialog_map_picker.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_proyecto.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_proyecto.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\xml_backup_provider_paths.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\xml\\backup_provider_paths.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_item_event.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/item_event.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_contactar.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_contactar.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_chat.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_chat.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_junta.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_junta.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_add_event.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/fragment_add_event.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_notification.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_notification.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_activities.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_activities.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_telefono.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_telefono.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_backup.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/fragment_backup.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_fragment_add_event.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_add_event.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_btn_primary_background.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/btn_primary_background.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_btn_secondary_background.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\btn_secondary_background.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_add.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_add.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_proyecto.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_proyecto.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/xml_backup_provider_paths.xml.flat",
-        "source": "com.example.organizer.app-main-7:/xml/backup_provider_paths.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_home.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_home.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_activities.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_activities.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_chat.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_chat.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_rounded_bg.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/rounded_bg.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_home.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/fragment_home.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_consult.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_consult.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_contactar.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_contactar.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_examen.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_examen.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_cita.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_cita.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_otros.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_otros.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_cita.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_cita.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_item_event.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\item_event.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_restore.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_restore.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_add.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_status_background.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/status_background.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_search.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_activate.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_activate.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_menu.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_menu.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_activate.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_activate.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_junta.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_junta.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_activities.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_activities.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_item_event_table.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/item_event_table.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_rounded_bg.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\rounded_bg.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_chat.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_chat.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_search.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_search.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_btn_secondary_background.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/btn_secondary_background.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_consult.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_consult.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_agenda.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_agenda.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_recordatorio.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_recordatorio.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_ubicacion.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_ubicacion.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_fragment_consult.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_consult.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\menu_main_drawer_menu.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\menu\\main_drawer_menu.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_about.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_about.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_restore.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_restore.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_agenda.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_agenda.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/menu_bottom_nav_menu.xml.flat",
-        "source": "com.example.organizer.app-main-7:/menu/bottom_nav_menu.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_ubicacion.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_ubicacion.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_examen.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_examen.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/menu_main_drawer_menu.xml.flat",
-        "source": "com.example.organizer.app-main-7:/menu/main_drawer_menu.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_ubicacion.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_ubicacion.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_backup.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_backup.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_chat.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_chat.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_ubicacion.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_ubicacion.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_about.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/fragment_about.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_info.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_info.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_agenda.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_agenda.xml"
-    },
-    {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-xxxhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_recordatorio.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_recordatorio.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_otros.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_otros.xml"
     },
     {
         "merged": "com.example.organizer.app-merged_res-5:/layout_activity_main.xml.flat",
         "source": "com.example.organizer.app-main-7:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_location.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_location.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_fragment_about.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_about.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_exit.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_exit.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_evnt.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_evnt.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_edittext_background.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/edittext_background.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_location.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_location.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_consult.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_consult.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_recordatorio.png.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_recordatorio.png"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/xml_backup_rules.xml.flat",
-        "source": "com.example.organizer.app-main-7:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_bg_status.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/bg_status.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_btn_circle_background.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\btn_circle_background.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_consult.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/fragment_consult.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_fragment_backup.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_backup.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.organizer.app-main-7:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_menu.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_menu.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_btn_primary_background.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\btn_primary_background.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_dialog_map_picker.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/dialog_map_picker.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_about.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_about.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_agenda.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_agenda.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/navigation_nav_graph.xml.flat",
-        "source": "com.example.organizer.app-main-7:/navigation/nav_graph.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_activities.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_activities.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_info.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_info.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.organizer.app-main-7:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_notification.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_notification.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_backup.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_backup.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_exit.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_exit.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_telefono.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_telefono.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_btn_circle_background.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/btn_circle_background.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_recordatorio.png.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_recordatorio.png"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_home.xml.flat",
-        "source": "com.example.organizer.app-main-7:/drawable/ic_home.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_item_event_table.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\item_event_table.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_bg_status.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\bg_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_edittext_background.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\edittext_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_status_background.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\status_background.xml"
     }
 ]
