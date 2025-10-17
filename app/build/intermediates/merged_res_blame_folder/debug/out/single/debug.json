@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_add_event.xml.flat",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_add_event.xml"
+    },
+    {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_dialog_map_picker.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\dialog_map_picker.xml"
     },
@@ -78,6 +82,10 @@
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_add.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_item_contact.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\item_contact.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_search.xml.flat",
@@ -164,12 +172,16 @@
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_info.xml"
     },
     {
+        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_agenda.xml.flat",
+        "source": "com.example.organizer.app-main-7:/layout/activity_agenda.xml"
+    },
+    {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_otros.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_otros.xml"
     },
     {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_main.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_main.xml"
+        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_recordatorio.xml.flat",
+        "source": "com.example.organizer.app-main-7:/layout/activity_recordatorio.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_fragment_about.xml.flat",
@@ -214,6 +226,10 @@
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_about.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_about.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-merged_res-5:/layout_fragment_consult.xml.flat",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_consult.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_agenda.xml.flat",

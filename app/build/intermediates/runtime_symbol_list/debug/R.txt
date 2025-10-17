@@ -3242,6 +3242,7 @@ int id btnLocalBackup 0x7f09006b
 int id btnLocalRestore 0x7f09006c
 int id btnMonth 0x7f09006d
 int id btnRange 0x7f09006e
+int id btnRefresh 0x7f09023f
 int id btnRestore 0x7f09006f
 int id btnToday 0x7f090070
 int id btnYear 0x7f090071
@@ -3250,6 +3251,7 @@ int id btn_activities 0x7f090073
 int id btn_agenda 0x7f090074
 int id btn_back 0x7f090075
 int id btn_buscar 0x7f090076
+int id btn_buscar_contacto 0x7f09023a
 int id btn_chat 0x7f090077
 int id btn_consult 0x7f090078
 int id btn_contactar 0x7f090079
@@ -3305,6 +3307,7 @@ int id decelerate 0x7f0900aa
 int id decelerateAndComplete 0x7f0900ab
 int id decor_content_parent 0x7f0900ac
 int id default_activity_button 0x7f0900ad
+int id deleteButton 0x7f090240
 int id deltaRelative 0x7f0900ae
 int id dependency_ordering 0x7f0900af
 int id descriptionEditText 0x7f0900b0
@@ -3339,10 +3342,12 @@ int id edge 0x7f0900cc
 int id edit_query 0x7f0900cd
 int id elastic 0x7f0900ce
 int id embed 0x7f0900cf
+int id emptyStateText 0x7f090241
 int id end 0x7f0900d0
 int id endToStart 0x7f0900d1
 int id enterAlways 0x7f0900d2
 int id enterAlwaysCollapsed 0x7f0900d3
+int id et_buscar_contacto 0x7f09023b
 int id et_descripcion 0x7f0900d4
 int id et_direccion 0x7f0900d5
 int id et_hora 0x7f0900d6
@@ -3366,6 +3371,7 @@ int id fill_horizontal 0x7f0900e7
 int id fill_vertical 0x7f0900e8
 int id filled 0x7f0900e9
 int id filterButton 0x7f0900ea
+int id filterStatusText 0x7f090242
 int id fitCenter 0x7f0900eb
 int id fitEnd 0x7f0900ec
 int id fitStart 0x7f0900ed
@@ -3528,11 +3534,13 @@ int id pooling_container_listener_holder_tag 0x7f090189
 int id position 0x7f09018a
 int id postLayout 0x7f09018b
 int id pressed 0x7f09018c
+int id progressBar 0x7f090243
 int id progress_circular 0x7f09018d
 int id progress_horizontal 0x7f09018e
 int id radio 0x7f09018f
 int id ratio 0x7f090190
 int id rectangles 0x7f090191
+int id recycler_contactos 0x7f09023c
 int id recycler_view 0x7f090192
 int id reminderSpinner 0x7f090193
 int id report_drawn 0x7f090194
@@ -3672,6 +3680,8 @@ int id transition_position 0x7f090219
 int id transition_scene_layoutid_cache 0x7f09021a
 int id transition_transform 0x7f09021b
 int id triangle 0x7f09021c
+int id tv_contact_name 0x7f09023d
+int id tv_contact_phone 0x7f09023e
 int id tv_status 0x7f09021d
 int id typeFilterSpinner 0x7f09021e
 int id typeSpinner 0x7f09021f
@@ -3846,6 +3856,7 @@ int layout fragment_add_event 0x7f0c0036
 int layout fragment_backup 0x7f0c0037
 int layout fragment_consult 0x7f0c0038
 int layout fragment_home 0x7f0c0039
+int layout item_contact 0x7f0c0079
 int layout item_event 0x7f0c003a
 int layout item_event_table 0x7f0c003b
 int layout m3_alert_dialog 0x7f0c003c

@@ -1,76 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
     android:padding="16dp">
 
+    <!-- Header con título y botón de actualizar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
 
-        <!-- Filtros -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <Spinner
-                android:id="@+id/typeFilterSpinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <Spinner
-                android:id="@+id/statusFilterSpinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-        </LinearLayout>
+            android:layout_weight="1"
+            android:text="📅 Consultar Eventos"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
         <Button
-            android:id="@+id/filterButton"
-            android:layout_width="match_parent"
+            android:id="@+id/btnRefresh"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filtrar"
-            android:layout_marginBottom="16dp"/>
+            android:text="🔄"
+            android:background="@drawable/btn_circle_background"
+            android:textColor="#FFFFFF"
+            android:padding="12dp" />
+    </LinearLayout>
 
-        <!-- Botones de consulta -->
+    <!-- Estado del filtro actual -->
+    <TextView
+        android:id="@+id/filterStatusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• Eventos de Hoy"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:padding="12dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible" />
+
+    <!-- Filtros -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <Spinner
+            android:id="@+id/typeFilterSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginEnd="8dp" />
+
+        <Spinner
+            android:id="@+id/statusFilterSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/filterButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="🔍 Aplicar Filtros"
+        android:textSize="16sp"
+        android:background="@drawable/btn_secondary_background"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Botones de consulta rápida -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
         <Button
             android:id="@+id/btnToday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Eventos de Hoy"
-            android:layout_marginBottom="8dp"/>
-
-        <Button
-            android:id="@+id/btnRange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Rango de Fechas"
-            android:layout_marginBottom="8dp"/>
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="📅 Hoy"
+            android:textSize="14sp"
+            android:background="@drawable/btn_secondary_background"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="4dp" />
 
         <Button
             android:id="@+id/btnMonth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Eventos del Mes"
-            android:layout_marginBottom="8dp"/>
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="🗓️ Mes"
+            android:textSize="14sp"
+            android:background="@drawable/btn_secondary_background"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp" />
 
         <Button
             android:id="@+id/btnYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Eventos del Año"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- RecyclerView único -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/eventsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="📊 Año"
+            android:textSize="14sp"
+            android:background="@drawable/btn_secondary_background"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="4dp" />
     </LinearLayout>
-</ScrollView>
+
+    <Button
+        android:id="@+id/btnRange"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="📅 Rango de Fechas"
+        android:textSize="16sp"
+        android:background="@drawable/btn_secondary_background"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Estado vacío -->
+    <TextView
+        android:id="@+id/emptyStateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📅 No se encontraron eventos\n\nPuedes crear un nuevo evento desde el menú principal o usando el asistente de voz."
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</LinearLayout>

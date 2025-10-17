@@ -1,3 +1,4 @@
+// ConsultFragment.kt - VERSIÓN COMPLETA CORREGIDA
 package com.example.organizer.ui.consult
 
 import android.os.Bundle
@@ -6,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +26,7 @@ class ConsultFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var adapter: EventAdapter
+    private var currentFilter: String = "HOY" // Heurística 1: Estado visible
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,16 +37,23 @@ class ConsultFragment : Fragment() {
         dbHelper = DatabaseProvider.get(requireContext())
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
         setupButtons()
         setupSpinners()
+        setupTooltips() // Heurística 6: Reconocimiento antes que recuerdo
+
+        // Heurística 7: Flexibilidad y eficiencia - Cargar eventos de hoy por defecto
+        loadEventsForToday()
+
+        // Heurística 1: Mostrar estado actual
+        updateFilterStatus("Eventos de Hoy")
     }
 
     private fun setupRecyclerView() {
-        // Ya no necesitas configurar el LayoutManager aquí (se hace en XML)
         adapter = EventAdapter(
             emptyList(),
             onItemClick = { event -> navigateToEditEvent(event) },
@@ -52,14 +62,68 @@ class ConsultFragment : Fragment() {
         )
 
         binding.eventsRecyclerView.adapter = adapter
+        binding.eventsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Heurística 8: Diseño estético - Agregar divisor entre items
+        binding.eventsRecyclerView.addItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager.VERTICAL
+            )
+        )
     }
 
     private fun setupButtons() {
-        binding.btnToday.setOnClickListener { loadEventsForToday() }
-        binding.btnRange.setOnClickListener { showDateRangePicker() }
-        binding.btnMonth.setOnClickListener { loadEventsForCurrentMonth() }
-        binding.btnYear.setOnClickListener { loadEventsForCurrentYear() }
-        binding.filterButton.setOnClickListener { applyFilters() }
+        // Usar colores del sistema Android
+        val primaryColor = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_light)
+        val selectedColor = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark)
+
+        // Estado inicial - Hoy seleccionado
+        binding.btnToday.setBackgroundColor(selectedColor)
+
+        binding.btnToday.setOnClickListener {
+            loadEventsForToday()
+            highlightSelectedButton(binding.btnToday)
+            updateFilterStatus("Eventos de Hoy")
+        }
+
+        binding.btnRange.setOnClickListener {
+            showDateRangePicker()
+            highlightSelectedButton(binding.btnRange)
+        }
+
+        binding.btnMonth.setOnClickListener {
+            loadEventsForCurrentMonth()
+            highlightSelectedButton(binding.btnMonth)
+            updateFilterStatus("Eventos del Mes Actual")
+        }
+
+        binding.btnYear.setOnClickListener {
+            loadEventsForCurrentYear()
+            highlightSelectedButton(binding.btnYear)
+            updateFilterStatus("Eventos del Año Actual")
+        }
+
+        binding.filterButton.setOnClickListener {
+            applyFilters()
+            highlightSelectedButton(binding.filterButton)
+            updateFilterStatus("Eventos Filtrados")
+        }
+
+        // Heurística 7: Flexibilidad y eficiencia - Botón de actualización rápida
+        binding.btnRefresh.setOnClickListener {
+            refreshEvents()
+        }
+    }
+
+    private fun highlightSelectedButton(selectedButton: View) {
+        val primaryColor = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_light)
+        val selectedColor = ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark)
+
+        val buttons = listOf(binding.btnToday, binding.btnRange, binding.btnMonth, binding.btnYear, binding.filterButton)
+        buttons.forEach { button ->
+            button.setBackgroundColor(if (button == selectedButton) selectedColor else primaryColor)
+        }
     }
 
     private fun setupSpinners() {
@@ -67,7 +131,7 @@ class ConsultFragment : Fragment() {
         ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            resources.getStringArray(R.array.event_types_array).toList()
+            arrayListOf("Todos los tipos") + resources.getStringArray(R.array.event_types_array).toList()
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.typeFilterSpinner.adapter = adapter
@@ -77,10 +141,38 @@ class ConsultFragment : Fragment() {
         ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            resources.getStringArray(R.array.status_options).toList()
+            arrayListOf("Todos los estados") + resources.getStringArray(R.array.status_options).toList()
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.statusFilterSpinner.adapter = adapter
+        }
+    }
+
+    private fun setupTooltips() {
+        // Heurística 6: Reconocimiento antes que recuerdo
+        binding.btnToday.setOnLongClickListener {
+            Toast.makeText(requireContext(), "Mostrar eventos programados para hoy", Toast.LENGTH_SHORT).show()
+            true
+        }
+        binding.btnRange.setOnLongClickListener {
+            Toast.makeText(requireContext(), "Seleccionar un rango de fechas específico", Toast.LENGTH_SHORT).show()
+            true
+        }
+        binding.btnMonth.setOnLongClickListener {
+            Toast.makeText(requireContext(), "Mostrar todos los eventos del mes actual", Toast.LENGTH_SHORT).show()
+            true
+        }
+        binding.btnYear.setOnLongClickListener {
+            Toast.makeText(requireContext(), "Mostrar todos los eventos del año actual", Toast.LENGTH_SHORT).show()
+            true
+        }
+        binding.filterButton.setOnLongClickListener {
+            Toast.makeText(requireContext(), "Aplicar filtros por tipo y estado del evento", Toast.LENGTH_SHORT).show()
+            true
+        }
+        binding.btnRefresh.setOnLongClickListener {
+            Toast.makeText(requireContext(), "Actualizar la lista de eventos", Toast.LENGTH_SHORT).show()
+            true
         }
     }
 
@@ -96,56 +188,162 @@ class ConsultFragment : Fragment() {
         }
 
         adapter.updateEvents(events)
+
+        // Heurística 1: Visibilidad del estado
+        val filterText = buildString {
+            append("Filtros aplicados")
+            if (type != null) append(" • Tipo: $type")
+            if (status != null) append(" • Estado: $status")
+            append(" • ${events.size} eventos")
+        }
+
+        showSuccess(filterText)
+        updateFilterStatus("Eventos Filtrados")
     }
 
     private fun loadEventsForToday() {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val today = dateFormat.format(Date())
-        adapter.updateEvents(dbHelper.getEventsByDate(today))
+        val events = dbHelper.getEventsByDate(today)
+        adapter.updateEvents(events)
+
+        // Heurística 1: Feedback del resultado
+        if (events.isEmpty()) {
+            showInfo("No hay eventos programados para hoy")
+        } else {
+            showSuccess("${events.size} eventos encontrados para hoy")
+        }
+
+        updateEmptyState(events.isEmpty())
     }
 
     private fun loadEventsForCurrentMonth() {
         val calendar = Calendar.getInstance()
         val month = calendar.get(Calendar.MONTH)
         val year = calendar.get(Calendar.YEAR)
-        adapter.updateEvents(dbHelper.getEventsByMonth(month, year))
+        val events = dbHelper.getEventsByMonth(month, year)
+        adapter.updateEvents(events)
+
+        if (events.isEmpty()) {
+            showInfo("No hay eventos programados para este mes")
+        } else {
+            showSuccess("${events.size} eventos encontrados para el mes")
+        }
+
+        updateEmptyState(events.isEmpty())
     }
 
     private fun loadEventsForCurrentYear() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
-        adapter.updateEvents(dbHelper.getEventsByYear(year))
+        val events = dbHelper.getEventsByYear(year)
+        adapter.updateEvents(events)
+
+        if (events.isEmpty()) {
+            showInfo("No hay eventos programados para este año")
+        } else {
+            showSuccess("${events.size} eventos encontrados para el año")
+        }
+
+        updateEmptyState(events.isEmpty())
+    }
+
+    private fun refreshEvents() {
+        // Heurística 1: Feedback de actualización
+        binding.progressBar.visibility = View.VISIBLE
+        binding.btnRefresh.isEnabled = false
+
+        when (currentFilter) {
+            "HOY" -> loadEventsForToday()
+            "MES" -> loadEventsForCurrentMonth()
+            "AÑO" -> loadEventsForCurrentYear()
+            else -> applyFilters()
+        }
+
+        // Simular carga
+        binding.btnRefresh.postDelayed({
+            binding.progressBar.visibility = View.GONE
+            binding.btnRefresh.isEnabled = true
+            showSuccess("Lista actualizada")
+        }, 500)
     }
 
     private fun showDateRangePicker() {
-        val datePicker = MaterialDatePicker.Builder.dateRangePicker().build()
+        val datePicker = MaterialDatePicker.Builder.dateRangePicker()
+            .setTitleText("Seleccionar rango de fechas")
+            .setSelection(androidx.core.util.Pair(
+                MaterialDatePicker.todayInUtcMilliseconds(),
+                MaterialDatePicker.todayInUtcMilliseconds()
+            ))
+            .build()
+
         datePicker.addOnPositiveButtonClickListener { selection ->
             val start = selection.first
             val end = selection.second
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val startDate = dateFormat.format(Date(start))
             val endDate = dateFormat.format(Date(end))
-            adapter.updateEvents(dbHelper.getEventsByDateRange(startDate, endDate))
+            val events = dbHelper.getEventsByDateRange(startDate, endDate)
+            adapter.updateEvents(events)
+
+            // Heurística 1: Feedback del rango seleccionado
+            val rangeText = "Del ${dateFormat.format(Date(start))} al ${dateFormat.format(Date(end))}"
+            if (events.isEmpty()) {
+                showInfo("No hay eventos en el rango: $rangeText")
+            } else {
+                showSuccess("${events.size} eventos encontrados en: $rangeText")
+            }
+
+            updateFilterStatus("Rango: $rangeText")
+            updateEmptyState(events.isEmpty())
         }
+
+        datePicker.addOnNegativeButtonClickListener {
+            // Heurística 3: Control y libertad - El usuario puede cancelar
+            showInfo("Selección de rango cancelada")
+        }
+
         datePicker.show(parentFragmentManager, "DATE_RANGE_PICKER")
     }
 
+    private fun updateFilterStatus(status: String) {
+        binding.filterStatusText.text = "• $status"
+        binding.filterStatusText.visibility = View.VISIBLE
+    }
+
+    private fun updateEmptyState(isEmpty: Boolean) {
+        if (isEmpty) {
+            binding.emptyStateText.visibility = View.VISIBLE
+            binding.emptyStateText.text = "📅 No se encontraron eventos\n\nPuedes crear un nuevo evento desde el menú principal o usando el asistente de voz."
+        } else {
+            binding.emptyStateText.visibility = View.GONE
+        }
+    }
+
     private fun navigateToEditEvent(event: Event) {
+        // Heurística 3: Control y libertad - Navegación clara
         findNavController().navigate(
-            R.id.action_consultFragment_to_addEventFragment, // Asegúrate que esta acción existe en tu nav_graph.xml
+            R.id.action_consultFragment_to_addEventFragment,
             Bundle().apply { putParcelable("eventToEdit", event) }
         )
     }
 
     private fun showContactDetails(contactId: String) {
-        Toast.makeText(requireContext(), "Contacto ID: $contactId", Toast.LENGTH_SHORT).show()
-        // Para luego: abrir detalles del contacto en la agenda
+        // Heurística 9: Mensajes informativos
+        showInfo("Función de detalles de contacto en desarrollo")
     }
 
     private fun showLocationOnMap(location: Pair<Double, Double>) {
         val (lat, lng) = location
-        Toast.makeText(requireContext(), "Ubicación: $lat, $lng", Toast.LENGTH_SHORT).show()
-        // Para luego: abrir Google Maps con la ubicación
+        showInfo("Función de mapa en desarrollo - Ubicación: $lat, $lng")
+    }
+
+    private fun showSuccess(message: String) {
+        Toast.makeText(requireContext(), "✅ $message", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showInfo(message: String) {
+        Toast.makeText(requireContext(), "ℹ️ $message", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

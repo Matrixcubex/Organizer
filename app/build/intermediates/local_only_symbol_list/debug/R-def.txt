@@ -55,6 +55,7 @@ id btnLocalBackup
 id btnLocalRestore
 id btnMonth
 id btnRange
+id btnRefresh
 id btnRestore
 id btnToday
 id btnYear
@@ -63,6 +64,7 @@ id btn_activities
 id btn_agenda
 id btn_back
 id btn_buscar
+id btn_buscar_contacto
 id btn_chat
 id btn_consult
 id btn_contactar
@@ -75,8 +77,11 @@ id confirmButton
 id consultFragment
 id contactButton
 id dateEditText
+id deleteButton
 id descriptionEditText
 id developerText
+id emptyStateText
+id et_buscar_contacto
 id et_descripcion
 id et_direccion
 id et_hora
@@ -92,11 +97,14 @@ id eventType
 id eventsRecyclerView
 id exit_app
 id filterButton
+id filterStatusText
 id fragment_container
 id homeFragment
 id locationButton
 id map
 id nav_graph
+id progressBar
+id recycler_contactos
 id recycler_view
 id reminderSpinner
 id saveButton
@@ -105,6 +113,8 @@ id statusFilterSpinner
 id statusSpinner
 id timeEditText
 id titleEditText
+id tv_contact_name
+id tv_contact_phone
 id tv_status
 id typeFilterSpinner
 id typeSpinner
@@ -124,6 +134,7 @@ layout fragment_add_event
 layout fragment_backup
 layout fragment_consult
 layout fragment_home
+layout item_contact
 layout item_event
 layout item_event_table
 menu bottom_nav_menu

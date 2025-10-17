@@ -3243,6 +3243,7 @@ id btnLocalBackup
 id btnLocalRestore
 id btnMonth
 id btnRange
+id btnRefresh
 id btnRestore
 id btnToday
 id btnYear
@@ -3251,6 +3252,7 @@ id btn_activities
 id btn_agenda
 id btn_back
 id btn_buscar
+id btn_buscar_contacto
 id btn_chat
 id btn_consult
 id btn_contactar
@@ -3306,6 +3308,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id deltaRelative
 id dependency_ordering
 id descriptionEditText
@@ -3340,10 +3343,12 @@ id edge
 id edit_query
 id elastic
 id embed
+id emptyStateText
 id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id et_buscar_contacto
 id et_descripcion
 id et_direccion
 id et_hora
@@ -3367,6 +3372,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id filterButton
+id filterStatusText
 id fitCenter
 id fitEnd
 id fitStart
@@ -3529,11 +3535,13 @@ id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_contactos
 id recycler_view
 id reminderSpinner
 id report_drawn
@@ -3673,6 +3681,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_contact_name
+id tv_contact_phone
 id tv_status
 id typeFilterSpinner
 id typeSpinner
@@ -3847,6 +3857,7 @@ layout fragment_add_event
 layout fragment_backup
 layout fragment_consult
 layout fragment_home
+layout item_contact
 layout item_event
 layout item_event_table
 layout m3_alert_dialog

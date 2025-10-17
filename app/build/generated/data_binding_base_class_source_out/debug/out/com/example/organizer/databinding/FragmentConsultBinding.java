@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +21,7 @@ import java.lang.String;
 
 public final class FragmentConsultBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final Button btnMonth;
@@ -28,10 +30,16 @@ public final class FragmentConsultBinding implements ViewBinding {
   public final Button btnRange;
 
   @NonNull
+  public final Button btnRefresh;
+
+  @NonNull
   public final Button btnToday;
 
   @NonNull
   public final Button btnYear;
+
+  @NonNull
+  public final TextView emptyStateText;
 
   @NonNull
   public final RecyclerView eventsRecyclerView;
@@ -40,29 +48,41 @@ public final class FragmentConsultBinding implements ViewBinding {
   public final Button filterButton;
 
   @NonNull
+  public final TextView filterStatusText;
+
+  @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
   public final Spinner statusFilterSpinner;
 
   @NonNull
   public final Spinner typeFilterSpinner;
 
-  private FragmentConsultBinding(@NonNull ScrollView rootView, @NonNull Button btnMonth,
-      @NonNull Button btnRange, @NonNull Button btnToday, @NonNull Button btnYear,
+  private FragmentConsultBinding(@NonNull LinearLayout rootView, @NonNull Button btnMonth,
+      @NonNull Button btnRange, @NonNull Button btnRefresh, @NonNull Button btnToday,
+      @NonNull Button btnYear, @NonNull TextView emptyStateText,
       @NonNull RecyclerView eventsRecyclerView, @NonNull Button filterButton,
+      @NonNull TextView filterStatusText, @NonNull ProgressBar progressBar,
       @NonNull Spinner statusFilterSpinner, @NonNull Spinner typeFilterSpinner) {
     this.rootView = rootView;
     this.btnMonth = btnMonth;
     this.btnRange = btnRange;
+    this.btnRefresh = btnRefresh;
     this.btnToday = btnToday;
     this.btnYear = btnYear;
+    this.emptyStateText = emptyStateText;
     this.eventsRecyclerView = eventsRecyclerView;
     this.filterButton = filterButton;
+    this.filterStatusText = filterStatusText;
+    this.progressBar = progressBar;
     this.statusFilterSpinner = statusFilterSpinner;
     this.typeFilterSpinner = typeFilterSpinner;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -99,6 +119,12 @@ public final class FragmentConsultBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnRefresh;
+      Button btnRefresh = ViewBindings.findChildViewById(rootView, id);
+      if (btnRefresh == null) {
+        break missingId;
+      }
+
       id = R.id.btnToday;
       Button btnToday = ViewBindings.findChildViewById(rootView, id);
       if (btnToday == null) {
@@ -108,6 +134,12 @@ public final class FragmentConsultBinding implements ViewBinding {
       id = R.id.btnYear;
       Button btnYear = ViewBindings.findChildViewById(rootView, id);
       if (btnYear == null) {
+        break missingId;
+      }
+
+      id = R.id.emptyStateText;
+      TextView emptyStateText = ViewBindings.findChildViewById(rootView, id);
+      if (emptyStateText == null) {
         break missingId;
       }
 
@@ -123,6 +155,18 @@ public final class FragmentConsultBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.filterStatusText;
+      TextView filterStatusText = ViewBindings.findChildViewById(rootView, id);
+      if (filterStatusText == null) {
+        break missingId;
+      }
+
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       id = R.id.statusFilterSpinner;
       Spinner statusFilterSpinner = ViewBindings.findChildViewById(rootView, id);
       if (statusFilterSpinner == null) {
@@ -135,8 +179,9 @@ public final class FragmentConsultBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentConsultBinding((ScrollView) rootView, btnMonth, btnRange, btnToday,
-          btnYear, eventsRecyclerView, filterButton, statusFilterSpinner, typeFilterSpinner);
+      return new FragmentConsultBinding((LinearLayout) rootView, btnMonth, btnRange, btnRefresh,
+          btnToday, btnYear, emptyStateText, eventsRecyclerView, filterButton, filterStatusText,
+          progressBar, statusFilterSpinner, typeFilterSpinner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

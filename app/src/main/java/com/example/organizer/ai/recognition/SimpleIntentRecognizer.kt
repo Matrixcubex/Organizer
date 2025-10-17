@@ -13,18 +13,20 @@ class SimpleIntentRecognizer {
 
         val result = when {
             // AGENDA - Múltiples patrones
-            containsAny(lowerInput, listOf("agendar", "cita", "programar", "reunión", "evento", "calendario", "doctor", "médico", "hospital")) -> {
-                Log.d("INTENT_DEBUG", "✅ Detectado: AGENDA")
+            containsAny(lowerInput, listOf("ubicación", "ubicacion", "dónde", "donde", "mapa", "cómo llegar", "como llegar", "dirección", "direccion", "lugar", "sitio")) -> {
+                val destino = extractDestination(userInput)
+                Log.d("INTENT_DEBUG", "✅ Detectado: UBICACIÓN - Destino: '$destino'")
                 ParsedCommand(
-                    intention = UserIntention.Agenda,
-                    confidence = 0.9f,
+                    intention = UserIntention.Ubicacion,
+                    confidence = 0.8f,
                     parameters = mapOf(
-                        "descripcion" to userInput,
-                        "tipo" to "cita"
+                        "direccion" to destino,
+                        "tipo" to "navegacion"
                     ),
                     rawText = userInput
                 )
             }
+
 
             // RECORDATORIO - Múltiples patrones
             containsAny(lowerInput, listOf("recordatorio", "recordar", "aviso", "notificación", "alarma", "recordarme", "avisarme")) -> {
@@ -79,13 +81,15 @@ class SimpleIntentRecognizer {
 
             // CONTACTO normal
             containsAny(lowerInput, listOf("llamar", "contactar", "teléfono", "telefono", "número", "numero", "marcar", "hablar con")) -> {
-                Log.d("INTENT_DEBUG", "✅ Detectado: CONTACTO")
+                val contacto = extractContactName(userInput)
+                Log.d("INTENT_DEBUG", "✅ Detectado: CONTACTO - Nombre: '$contacto'")
                 ParsedCommand(
                     intention = UserIntention.Contacto,
                     confidence = 0.8f,
                     parameters = mapOf(
-                        "contacto" to "familiar",
-                        "tipo" to "contacto_normal"
+                        "contacto" to contacto,
+                        "tipo" to "contacto_normal",
+                        "nombre" to contacto
                     ),
                     rawText = userInput
                 )
@@ -114,5 +118,62 @@ class SimpleIntentRecognizer {
             }
         }
         return false
+    }
+    // En SimpleIntentRecognizer.kt - AÑADIR estos métodos:
+
+    private fun extractDestination(input: String): String {
+        val patterns = listOf(
+            "ir a (.+)".toRegex(),
+            "cómo llegar a (.+)".toRegex(),
+            "como llegar a (.+)".toRegex(),
+            "mapa de (.+)".toRegex(),
+            "dirección a (.+)".toRegex(),
+            "direccion a (.+)".toRegex()
+        )
+
+        patterns.forEach { pattern ->
+            val match = pattern.find(input.lowercase())
+            if (match != null) {
+                return match.groupValues[1].trim()
+            }
+        }
+
+        // Si no encuentra patrón, usar palabras después de "mapa" o "ubicación"
+        val words = input.split(" ")
+        val locationKeywords = listOf("mapa", "ubicación", "ubicacion", "dónde", "donde")
+
+        val keywordIndex = words.indexOfFirst { it.lowercase() in locationKeywords }
+        if (keywordIndex != -1 && keywordIndex < words.size - 1) {
+            return words.subList(keywordIndex + 1, words.size).joinToString(" ")
+        }
+
+        return input // Fallback: usar todo el input
+    }
+
+    private fun extractContactName(input: String): String {
+        val patterns = listOf(
+            "llamar a (.+)".toRegex(),
+            "contactar a (.+)".toRegex(),
+            "hablar con (.+)".toRegex(),
+            "marcar a (.+)".toRegex()
+        )
+
+        patterns.forEach { pattern ->
+            val match = pattern.find(input.lowercase())
+            if (match != null) {
+                return match.groupValues[1].trim()
+            }
+        }
+
+        // Buscar nombre después de palabras clave
+        val contactKeywords = listOf("llamar", "contactar", "hablar", "marcar")
+        val words = input.split(" ")
+        val keywordIndex = words.indexOfFirst { it.lowercase() in contactKeywords }
+
+        if (keywordIndex != -1 && keywordIndex < words.size - 1) {
+            return words.subList(keywordIndex + 1, words.size).joinToString(" ")
+        }
+
+        return "" // No se detectó nombre específico
     }
 }

@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.organizer.R;
@@ -22,9 +24,23 @@ public final class ActivityTelefonoBinding implements ViewBinding {
   @NonNull
   public final Button btnBack;
 
-  private ActivityTelefonoBinding(@NonNull LinearLayout rootView, @NonNull Button btnBack) {
+  @NonNull
+  public final Button btnBuscarContacto;
+
+  @NonNull
+  public final EditText etBuscarContacto;
+
+  @NonNull
+  public final RecyclerView recyclerContactos;
+
+  private ActivityTelefonoBinding(@NonNull LinearLayout rootView, @NonNull Button btnBack,
+      @NonNull Button btnBuscarContacto, @NonNull EditText etBuscarContacto,
+      @NonNull RecyclerView recyclerContactos) {
     this.rootView = rootView;
     this.btnBack = btnBack;
+    this.btnBuscarContacto = btnBuscarContacto;
+    this.etBuscarContacto = etBuscarContacto;
+    this.recyclerContactos = recyclerContactos;
   }
 
   @Override
@@ -60,7 +76,26 @@ public final class ActivityTelefonoBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityTelefonoBinding((LinearLayout) rootView, btnBack);
+      id = R.id.btn_buscar_contacto;
+      Button btnBuscarContacto = ViewBindings.findChildViewById(rootView, id);
+      if (btnBuscarContacto == null) {
+        break missingId;
+      }
+
+      id = R.id.et_buscar_contacto;
+      EditText etBuscarContacto = ViewBindings.findChildViewById(rootView, id);
+      if (etBuscarContacto == null) {
+        break missingId;
+      }
+
+      id = R.id.recycler_contactos;
+      RecyclerView recyclerContactos = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerContactos == null) {
+        break missingId;
+      }
+
+      return new ActivityTelefonoBinding((LinearLayout) rootView, btnBack, btnBuscarContacto,
+          etBuscarContacto, recyclerContactos);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

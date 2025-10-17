@@ -33,43 +33,104 @@
             android:gravity="center" />
     </LinearLayout>
 
+    <!-- Información de uso mejorada -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💡 Crea recordatorios diarios que se repetirán automáticamente"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:padding="12dp"
+        android:background="#F3E5F5"
+        android:layout_marginBottom="20dp"
+        android:lineSpacingExtra="4dp" />
+
     <!-- Campos del formulario -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Título del recordatorio *"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp" />
+
     <EditText
         android:id="@+id/et_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del recordatorio"
+        android:hint="Ej: Tomar medicina"
         android:layout_marginBottom="16dp"
         android:background="@drawable/edittext_background"
-        android:padding="12dp" />
+        android:padding="16dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora *"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/et_hora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hora (ej: 14:30)"
+        android:hint="HH:mm (ej: 08:00)"
         android:layout_marginBottom="16dp"
         android:background="@drawable/edittext_background"
-        android:padding="12dp" />
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:inputType="time" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/et_descripcion"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:hint="Descripción"
+        android:hint="Detalles del recordatorio..."
         android:gravity="top"
         android:layout_marginBottom="30dp"
         android:background="@drawable/edittext_background"
-        android:padding="12dp" />
+        android:padding="16dp"
+        android:textSize="16sp" />
+
+    <!-- Progress Bar para feedback visual -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
 
     <!-- Botón Guardar -->
     <Button
         android:id="@+id/btn_guardar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear Recordatorio"
-        android:textSize="16sp"
+        android:layout_height="55dp"
+        android:text="🔔 Crear Recordatorio Diario"
+        android:textSize="18sp"
         android:background="@drawable/btn_secondary_background"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:stateListAnimator="@null" />
+
+    <!-- Información de notificación -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📱 Recibirás una notificación todos los días a esta hora"
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:padding="8dp" />
 
 </LinearLayout>

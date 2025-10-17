@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import androidx.annotation.NonNull;
@@ -29,10 +30,16 @@ public final class FragmentAddEventBinding implements ViewBinding {
   public final EditText dateEditText;
 
   @NonNull
+  public final Button deleteButton;
+
+  @NonNull
   public final EditText descriptionEditText;
 
   @NonNull
   public final Button locationButton;
+
+  @NonNull
+  public final ProgressBar progressBar;
 
   @NonNull
   public final Spinner reminderSpinner;
@@ -56,16 +63,19 @@ public final class FragmentAddEventBinding implements ViewBinding {
   public final Spinner typeSpinner;
 
   private FragmentAddEventBinding(@NonNull ScrollView rootView, @NonNull Button contactButton,
-      @NonNull EditText dateEditText, @NonNull EditText descriptionEditText,
-      @NonNull Button locationButton, @NonNull Spinner reminderSpinner, @NonNull Button saveButton,
-      @NonNull LinearLayout statusContainer, @NonNull Spinner statusSpinner,
-      @NonNull EditText timeEditText, @NonNull EditText titleEditText,
-      @NonNull Spinner typeSpinner) {
+      @NonNull EditText dateEditText, @NonNull Button deleteButton,
+      @NonNull EditText descriptionEditText, @NonNull Button locationButton,
+      @NonNull ProgressBar progressBar, @NonNull Spinner reminderSpinner,
+      @NonNull Button saveButton, @NonNull LinearLayout statusContainer,
+      @NonNull Spinner statusSpinner, @NonNull EditText timeEditText,
+      @NonNull EditText titleEditText, @NonNull Spinner typeSpinner) {
     this.rootView = rootView;
     this.contactButton = contactButton;
     this.dateEditText = dateEditText;
+    this.deleteButton = deleteButton;
     this.descriptionEditText = descriptionEditText;
     this.locationButton = locationButton;
+    this.progressBar = progressBar;
     this.reminderSpinner = reminderSpinner;
     this.saveButton = saveButton;
     this.statusContainer = statusContainer;
@@ -114,6 +124,12 @@ public final class FragmentAddEventBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.deleteButton;
+      Button deleteButton = ViewBindings.findChildViewById(rootView, id);
+      if (deleteButton == null) {
+        break missingId;
+      }
+
       id = R.id.descriptionEditText;
       EditText descriptionEditText = ViewBindings.findChildViewById(rootView, id);
       if (descriptionEditText == null) {
@@ -123,6 +139,12 @@ public final class FragmentAddEventBinding implements ViewBinding {
       id = R.id.locationButton;
       Button locationButton = ViewBindings.findChildViewById(rootView, id);
       if (locationButton == null) {
+        break missingId;
+      }
+
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
         break missingId;
       }
 
@@ -169,8 +191,8 @@ public final class FragmentAddEventBinding implements ViewBinding {
       }
 
       return new FragmentAddEventBinding((ScrollView) rootView, contactButton, dateEditText,
-          descriptionEditText, locationButton, reminderSpinner, saveButton, statusContainer,
-          statusSpinner, timeEditText, titleEditText, typeSpinner);
+          deleteButton, descriptionEditText, locationButton, progressBar, reminderSpinner,
+          saveButton, statusContainer, statusSpinner, timeEditText, titleEditText, typeSpinner);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -9,11 +9,12 @@ import com.example.organizer.data.DatabaseHelper
 import com.example.organizer.data.model.Event
 import java.text.SimpleDateFormat
 import java.util.*
+import com.example.organizer.utils.NotificationHelper
 
 class ReminderProcessor(private val context: Context) {
 
     private val dbHelper = DatabaseHelper(context)
-
+    private val notificationHelper = NotificationHelper(context)
     fun process(parsedCommand: ParsedCommand): Action {
         val (titulo, descripcion, hora) = extractReminderDetails(parsedCommand.rawText)
 
@@ -24,11 +25,25 @@ class ReminderProcessor(private val context: Context) {
                 "descripcion" to descripcion,
                 "hora" to hora
             ),
-            response = "🔔 Recordatorio diario creado: $titulo a las $hora",
+            response = "🔔 Recordatorio diario creado: $titulo a las $hora\n📱 Recibirás una notificación todos los días a esta hora.",
             execute = {
                 val eventId = saveDailyReminder(titulo, descripcion, hora)
-                showCreationNotification(titulo, "Recordatorio diario a las $hora")
-                scheduleDailyReminder(eventId, titulo, descripcion, hora)
+                // Programar notificación diaria real
+                val event = Event(
+                    id = eventId,
+                    title = titulo,
+                    type = "recordatorio_diario",
+                    contactName = "",
+                    contactId = "",
+                    locationLat = 0.0,
+                    locationLng = 0.0,
+                    description = descripcion,
+                    date = "DIARIO",
+                    time = hora,
+                    status = "Activo",
+                    reminder = "0"
+                )
+                notificationHelper.scheduleDailyReminder(event)
             }
         )
     }

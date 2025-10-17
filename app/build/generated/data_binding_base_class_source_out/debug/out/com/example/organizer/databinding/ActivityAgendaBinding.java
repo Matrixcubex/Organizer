@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -35,15 +36,19 @@ public final class ActivityAgendaBinding implements ViewBinding {
   @NonNull
   public final EditText etNombre;
 
+  @NonNull
+  public final ProgressBar progressBar;
+
   private ActivityAgendaBinding(@NonNull LinearLayout rootView, @NonNull Button btnBack,
       @NonNull Button btnGuardar, @NonNull EditText etDescripcion, @NonNull EditText etHora,
-      @NonNull EditText etNombre) {
+      @NonNull EditText etNombre, @NonNull ProgressBar progressBar) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnGuardar = btnGuardar;
     this.etDescripcion = etDescripcion;
     this.etHora = etHora;
     this.etNombre = etNombre;
+    this.progressBar = progressBar;
   }
 
   @Override
@@ -103,8 +108,14 @@ public final class ActivityAgendaBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       return new ActivityAgendaBinding((LinearLayout) rootView, btnBack, btnGuardar, etDescripcion,
-          etHora, etNombre);
+          etHora, etNombre, progressBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
