@@ -35,15 +35,22 @@
             android:gravity="center" />
     </LinearLayout>
 
-    <!-- Área de chat -->
-    <LinearLayout
-        android:id="@+id/chat_container"
+    <!-- Área de chat con ScrollView -->
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:background="#FAFAFA" />
+        android:background="#FAFAFA"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/chat_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp" />
+    </ScrollView>
 
     <!-- Input de mensaje -->
     <LinearLayout
@@ -60,7 +67,10 @@
             android:layout_weight="1"
             android:hint="Escribe tu mensaje..."
             android:background="@drawable/edittext_background"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:imeOptions="actionSend"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="3" />
 
         <Button
             android:id="@+id/btn_send"

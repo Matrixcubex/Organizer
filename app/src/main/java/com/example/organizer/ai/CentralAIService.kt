@@ -14,6 +14,7 @@ class CentralAIService(private val context: Context) {
     private val locationProcessor = LocationProcessor(context)
     private val contactProcessor = ContactProcessor(context)
     private val searchProcessor = SearchProcessor(context)
+    private val webSearchProcessor = WebSearchProcessor(context) // ← NUEVO procesador
     private val emergencyProcessor = EmergencyProcessor(context)
     private val chatProcessor = ChatProcessor()
 
@@ -53,8 +54,24 @@ class CentralAIService(private val context: Context) {
                 }
             }
             is UserIntention.Busqueda -> {
-                Log.d("AI_DEBUG", "🎯 Ejecutando SearchProcessor")
-                searchProcessor.process(parsedCommand)
+                // ✅ NUEVA LÓGICA: Distinguir entre tipos de búsqueda
+                val tipoBusqueda = parsedCommand.parameters["tipo"] ?: ""
+                Log.d("AI_DEBUG", "🎯 Tipo de búsqueda detectado: '$tipoBusqueda'")
+
+                when {
+                    tipoBusqueda.contains("explicar") -> {
+                        Log.d("AI_DEBUG", "📚 Ejecutando WebSearchProcessor para EXPLICAR")
+                        webSearchProcessor.process(parsedCommand)
+                    }
+                    tipoBusqueda.contains("web") || tipoBusqueda.contains("internet") -> {
+                        Log.d("AI_DEBUG", "🌐 Ejecutando WebSearchProcessor para BÚSQUEDA WEB")
+                        webSearchProcessor.process(parsedCommand)
+                    }
+                    else -> {
+                        Log.d("AI_DEBUG", "🔍 Ejecutando SearchProcessor (búsqueda normal)")
+                        searchProcessor.process(parsedCommand)
+                    }
+                }
             }
             is UserIntention.ChatGeneral -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando ChatProcessor")
@@ -76,7 +93,15 @@ class CentralAIService(private val context: Context) {
         return Action(
             intention = UserIntention.Desconocido,
             parameters = emptyMap(),
-            response = "No estoy seguro de qué necesitas. ¿Puedes ser más específico?\n\nPuedo ayudarte con:\n• Agendar citas 📅\n• Recordatorios 🔔\n• Buscar información 🔍\n• Ubicaciones 🗺️\n• Llamadas 📞"
+            response = "No estoy seguro de qué necesitas. ¿Puedes ser más específico?\n\n" +
+                    "Puedo ayudarte con:\n" +
+                    "• Agendar citas 📅\n" +
+                    "• Recordatorios 🔔\n" +
+                    "• Buscar información en internet 🔍\n" +
+                    "• Explicar temas 📚\n" +
+                    "• Ubicaciones y rutas 🗺️\n" +
+                    "• Llamadas 📞\n" +
+                    "• Emergencias 🚨"
         )
     }
 }

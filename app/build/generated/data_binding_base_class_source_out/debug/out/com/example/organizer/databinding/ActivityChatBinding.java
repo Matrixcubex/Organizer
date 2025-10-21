@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -32,13 +33,18 @@ public final class ActivityChatBinding implements ViewBinding {
   @NonNull
   public final EditText etMessage;
 
+  @NonNull
+  public final ScrollView scrollView;
+
   private ActivityChatBinding(@NonNull LinearLayout rootView, @NonNull Button btnBack,
-      @NonNull Button btnSend, @NonNull LinearLayout chatContainer, @NonNull EditText etMessage) {
+      @NonNull Button btnSend, @NonNull LinearLayout chatContainer, @NonNull EditText etMessage,
+      @NonNull ScrollView scrollView) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnSend = btnSend;
     this.chatContainer = chatContainer;
     this.etMessage = etMessage;
+    this.scrollView = scrollView;
   }
 
   @Override
@@ -92,8 +98,14 @@ public final class ActivityChatBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.scroll_view;
+      ScrollView scrollView = ViewBindings.findChildViewById(rootView, id);
+      if (scrollView == null) {
+        break missingId;
+      }
+
       return new ActivityChatBinding((LinearLayout) rootView, btnBack, btnSend, chatContainer,
-          etMessage);
+          etMessage, scrollView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

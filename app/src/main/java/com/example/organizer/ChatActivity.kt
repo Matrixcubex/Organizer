@@ -1,10 +1,13 @@
 package com.example.organizer
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.organizer.ai.CentralAIService
@@ -16,6 +19,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var etMessage: EditText
     private lateinit var btnSend: Button
     private lateinit var chatContainer: LinearLayout
+    private lateinit var scrollView: ScrollView
 
     private lateinit var aiService: CentralAIService
 
@@ -23,12 +27,13 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-        aiService = CentralAIService(this) // ← Ahora debería funcionar
+        aiService = CentralAIService(this)
 
         initViews()
         setupClickListeners()
 
-        addMessageToChat("Asistente", "¡Hola! Soy tu asistente personal. Puedo ayudarte con:\n• Agendar citas 📅\n• Crear recordatorios 🔔\n• Buscar información 🔍\n• Llamadas de emergencia 🚨\n• Y mucho más...")
+        // Mensaje de bienvenida del asistente
+        addMessageToChat("¡Hola! Soy tu asistente personal. Puedo ayudarte con:\n• Agendar citas 📅\n• Crear recordatorios 🔔\n• Buscar información 🔍\n• Llamadas de emergencia 🚨\n• Y mucho más...", false)
     }
 
     private fun initViews() {
@@ -36,6 +41,7 @@ class ChatActivity : AppCompatActivity() {
         etMessage = findViewById(R.id.et_message)
         btnSend = findViewById(R.id.btn_send)
         chatContainer = findViewById(R.id.chat_container)
+        scrollView = findViewById(R.id.scroll_view)
     }
 
     private fun setupClickListeners() {
@@ -44,17 +50,31 @@ class ChatActivity : AppCompatActivity() {
         }
 
         btnSend.setOnClickListener {
-            val message = etMessage.text.toString().trim()
-            if (message.isNotEmpty()) {
-                addMessageToChat("Tú", message)
-                etMessage.text.clear()
-                processUserMessage(message)
-            }
+            sendMessage()
         }
 
         // Habilitar/deshabilitar botón enviar
         etMessage.addTextChangedListener {
             btnSend.isEnabled = it?.toString()?.trim()?.isNotEmpty() == true
+        }
+
+        // Enviar con Enter
+        etMessage.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEND) {
+                sendMessage()
+                true
+            } else {
+                false
+            }
+        }
+    }
+
+    private fun sendMessage() {
+        val message = etMessage.text.toString().trim()
+        if (message.isNotEmpty()) {
+            addMessageToChat(message, true)
+            etMessage.text.clear()
+            processUserMessage(message)
         }
     }
 
@@ -67,82 +87,57 @@ class ChatActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     removeTypingIndicator()
-                    addMessageToChat("Asistente", action.response)
+                    addMessageToChat(action.response, false)
                     action.execute?.invoke()
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
                     removeTypingIndicator()
-                    addMessageToChat("Asistente", "❌ Ocurrió un error. Por favor, intenta de nuevo.")
+                    addMessageToChat("❌ Ocurrió un error. Por favor, intenta de nuevo.", false)
                 }
             }
         }.start()
     }
 
-    private fun addMessageToChat(sender: String, message: String) {
-        val messageView = TextView(this)
-        messageView.text = "$sender: $message"
-        messageView.setPadding(32, 16, 32, 16)
-        messageView.textSize = 16f
+    private fun addMessageToChat(message: String, isUser: Boolean) {
+        runOnUiThread {
+            val layoutRes = if (isUser) R.layout.layout_message_user else R.layout.layout_message_assistant
+            val messageView = LayoutInflater.from(this).inflate(layoutRes, chatContainer, false)
 
-        if (sender == "Tú") {
-            messageView.setBackgroundColor(0xFFE3F2FD.toInt())
-            messageView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
-        } else {
-            messageView.setBackgroundColor(0xFFF5F5F5.toInt())
-            messageView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_START
-        }
+            val tvMessage = messageView.findViewById<TextView>(R.id.tv_message)
+            tvMessage.text = message
 
-        val layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        layoutParams.setMargins(0, 8, 0, 8)
-        messageView.layoutParams = layoutParams
-
-        chatContainer.addView(messageView)
-
-        // Scroll corregido
-        chatContainer.post {
-            val scrollView = chatContainer.parent as? android.widget.ScrollView
-            scrollView?.fullScroll(android.view.View.FOCUS_DOWN)
+            chatContainer.addView(messageView)
+            scrollToBottom()
         }
     }
 
     private fun showTypingIndicator() {
         runOnUiThread {
-            val typingView = TextView(this)
-            typingView.id = android.R.id.custom // Usar ID temporal
-            typingView.text = "Asistente: escribiendo..."
-            typingView.setPadding(32, 16, 32, 16)
-            typingView.textSize = 14f
-            typingView.setBackgroundColor(0xFFF5F5F5.toInt())
-            typingView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_START
-            typingView.typeface = android.graphics.Typeface.create(android.graphics.Typeface.DEFAULT, android.graphics.Typeface.ITALIC)
-
-            val layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            layoutParams.setMargins(0, 8, 0, 8)
-            typingView.layoutParams = layoutParams
+            val typingView = LayoutInflater.from(this).inflate(R.layout.layout_message_assistant, chatContainer, false)
+            typingView.id = R.id.typing_indicator
+            val tvMessage = typingView.findViewById<TextView>(R.id.tv_message)
+            tvMessage.text = "escribiendo..."
+            tvMessage.setTypeface(tvMessage.typeface, android.graphics.Typeface.ITALIC)
 
             chatContainer.addView(typingView)
-
-            chatContainer.post {
-                val scrollView = chatContainer.parent as? android.widget.ScrollView
-                scrollView?.fullScroll(android.view.View.FOCUS_DOWN)
-            }
+            scrollToBottom()
         }
     }
 
     private fun removeTypingIndicator() {
         runOnUiThread {
-            val typingView = chatContainer.findViewById<TextView>(android.R.id.custom)
+            val typingView = chatContainer.findViewById<View>(R.id.typing_indicator)
             typingView?.let {
                 chatContainer.removeView(it)
             }
+        }
+    }
+
+    private fun scrollToBottom() {
+        chatContainer.post {
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN)
         }
     }
 }

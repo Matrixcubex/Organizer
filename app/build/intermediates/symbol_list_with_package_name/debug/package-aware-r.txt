@@ -2990,6 +2990,8 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable btn_secondary_background
+drawable bubble_assistant
+drawable bubble_user
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3563,6 +3565,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scroll_view
 id scrollable
 id search_badge
 id search_bar
@@ -3683,6 +3686,7 @@ id transition_transform
 id triangle
 id tv_contact_name
 id tv_contact_phone
+id tv_message
 id tv_status
 id typeFilterSpinner
 id typeSpinner
@@ -3860,6 +3864,8 @@ layout fragment_home
 layout item_contact
 layout item_event
 layout item_event_table
+layout layout_message_assistant
+layout layout_message_user
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

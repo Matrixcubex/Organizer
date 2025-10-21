@@ -7,6 +7,9 @@
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="30" />
+    <!-- En AndroidManifest.xml - AGREGAR permisos -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- Permisos deben estar aquí, antes de <application> -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.organizer.app-mergeDebugResources-3:/values-fa/values-fa.xml",
+            "outputFile": "com.example.organizer.app-mergeDebugResources-46:/values-fa/values-fa.xml",
             "map": [
                 {
                     "source": "C:\\Users\\adria\\.gradle\\caches\\8.11.1\\transforms\\3bad02e1ae236a0daaa44272fa80293a\\transformed\\play-services-base-18.1.0\\res\\values-fa\\values.xml",

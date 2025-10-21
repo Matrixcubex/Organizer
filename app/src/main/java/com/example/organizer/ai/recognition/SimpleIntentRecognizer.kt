@@ -13,20 +13,18 @@ class SimpleIntentRecognizer {
 
         val result = when {
             // AGENDA - Múltiples patrones
-            containsAny(lowerInput, listOf("ubicación", "ubicacion", "dónde", "donde", "mapa", "cómo llegar", "como llegar", "dirección", "direccion", "lugar", "sitio")) -> {
-                val destino = extractDestination(userInput)
-                Log.d("INTENT_DEBUG", "✅ Detectado: UBICACIÓN - Destino: '$destino'")
+            containsAny(lowerInput, listOf("agendar", "cita", "programar", "reunión", "evento", "calendario", "doctor", "médico", "hospital")) -> {
+                Log.d("INTENT_DEBUG", "✅ Detectado: AGENDA")
                 ParsedCommand(
-                    intention = UserIntention.Ubicacion,
-                    confidence = 0.8f,
+                    intention = UserIntention.Agenda,
+                    confidence = 0.9f,
                     parameters = mapOf(
-                        "direccion" to destino,
-                        "tipo" to "navegacion"
+                        "descripcion" to userInput,
+                        "tipo" to "cita"
                     ),
                     rawText = userInput
                 )
             }
-
 
             // RECORDATORIO - Múltiples patrones
             containsAny(lowerInput, listOf("recordatorio", "recordar", "aviso", "notificación", "alarma", "recordarme", "avisarme")) -> {
@@ -44,22 +42,57 @@ class SimpleIntentRecognizer {
 
             // UBICACIÓN
             containsAny(lowerInput, listOf("ubicación", "ubicacion", "dónde", "donde", "mapa", "cómo llegar", "como llegar", "dirección", "direccion", "lugar", "sitio")) -> {
-                Log.d("INTENT_DEBUG", "✅ Detectado: UBICACIÓN")
+                val destino = extractDestination(userInput)
+                Log.d("INTENT_DEBUG", "✅ Detectado: UBICACIÓN - Destino: '$destino'")
                 ParsedCommand(
                     intention = UserIntention.Ubicacion,
                     confidence = 0.8f,
-                    parameters = mapOf("direccion" to userInput),
+                    parameters = mapOf(
+                        "direccion" to destino,
+                        "tipo" to "navegacion"
+                    ),
                     rawText = userInput
                 )
             }
 
-            // BÚSQUEDA
-            containsAny(lowerInput, listOf("buscar", "encontrar", "información", "informacion", "qué es", "que es", "quién es", "quien es", "muestra", "enseña", "dime sobre")) -> {
-                Log.d("INTENT_DEBUG", "✅ Detectado: BÚSQUEDA")
+            // BÚSQUEDA EN INTERNET
+            containsAny(lowerInput, listOf("buscar en internet", "buscar en web", "buscar online", "investigar en internet")) -> {
+                val query = extractSearchQuery(userInput)
+                Log.d("INTENT_DEBUG", "✅ Detectado: BÚSQUEDA WEB - Query: '$query'")
+                ParsedCommand(
+                    intention = UserIntention.Busqueda,
+                    confidence = 0.9f,
+                    parameters = mapOf(
+                        "query" to query,
+                        "tipo" to "busqueda_web"
+                    ),
+                    rawText = userInput
+                )
+            }
+
+            // EXPLICAR TEMA (buscar + explicar)
+            containsAny(lowerInput, listOf("explicar", "qué es", "que es", "quién es", "quien es", "cómo funciona", "como funciona", "dime sobre")) -> {
+                val query = extractSearchQuery(userInput)
+                Log.d("INTENT_DEBUG", "✅ Detectado: EXPLICAR TEMA - Query: '$query'")
+                ParsedCommand(
+                    intention = UserIntention.Busqueda,
+                    confidence = 0.9f,
+                    parameters = mapOf(
+                        "query" to query,
+                        "tipo" to "explicar"
+                    ),
+                    rawText = userInput
+                )
+            }
+
+            // BÚSQUEDA NORMAL (fallback)
+            containsAny(lowerInput, listOf("buscar", "encontrar", "información", "informacion", "muestra", "enseña")) -> {
+                val query = extractSearchQuery(userInput)
+                Log.d("INTENT_DEBUG", "✅ Detectado: BÚSQUEDA NORMAL - Query: '$query'")
                 ParsedCommand(
                     intention = UserIntention.Busqueda,
                     confidence = 0.8f,
-                    parameters = mapOf("query" to userInput),
+                    parameters = mapOf("query" to query),
                     rawText = userInput
                 )
             }
@@ -119,8 +152,8 @@ class SimpleIntentRecognizer {
         }
         return false
     }
-    // En SimpleIntentRecognizer.kt - AÑADIR estos métodos:
 
+    // ✅ MÉTODO MEJORADO: Extraer destino de ubicación
     private fun extractDestination(input: String): String {
         val patterns = listOf(
             "ir a (.+)".toRegex(),
@@ -128,52 +161,115 @@ class SimpleIntentRecognizer {
             "como llegar a (.+)".toRegex(),
             "mapa de (.+)".toRegex(),
             "dirección a (.+)".toRegex(),
-            "direccion a (.+)".toRegex()
+            "direccion a (.+)".toRegex(),
+            "dónde está (.+)".toRegex(),
+            "donde esta (.+)".toRegex(),
+            "dónde queda (.+)".toRegex(),
+            "donde queda (.+)".toRegex()
         )
 
         patterns.forEach { pattern ->
             val match = pattern.find(input.lowercase())
             if (match != null) {
-                return match.groupValues[1].trim()
+                val destino = match.groupValues[1].trim()
+                Log.d("INTENT_DEBUG", "   🗺️ Destino extraído: '$destino'")
+                return destino
             }
         }
 
         // Si no encuentra patrón, usar palabras después de "mapa" o "ubicación"
         val words = input.split(" ")
-        val locationKeywords = listOf("mapa", "ubicación", "ubicacion", "dónde", "donde")
+        val locationKeywords = listOf("mapa", "ubicación", "ubicacion", "dónde", "donde", "cómo", "como", "llegar")
 
         val keywordIndex = words.indexOfFirst { it.lowercase() in locationKeywords }
         if (keywordIndex != -1 && keywordIndex < words.size - 1) {
-            return words.subList(keywordIndex + 1, words.size).joinToString(" ")
+            val destino = words.subList(keywordIndex + 1, words.size).joinToString(" ")
+            Log.d("INTENT_DEBUG", "   🗺️ Destino por keywords: '$destino'")
+            return destino
         }
 
+        Log.d("INTENT_DEBUG", "   🗺️ Destino fallback: usando input completo")
         return input // Fallback: usar todo el input
     }
 
+    // ✅ MÉTODO MEJORADO: Extraer nombre de contacto
     private fun extractContactName(input: String): String {
         val patterns = listOf(
             "llamar a (.+)".toRegex(),
             "contactar a (.+)".toRegex(),
             "hablar con (.+)".toRegex(),
-            "marcar a (.+)".toRegex()
+            "marcar a (.+)".toRegex(),
+            "telefonear a (.+)".toRegex()
         )
 
         patterns.forEach { pattern ->
             val match = pattern.find(input.lowercase())
             if (match != null) {
-                return match.groupValues[1].trim()
+                val contacto = match.groupValues[1].trim()
+                Log.d("INTENT_DEBUG", "   📞 Contacto extraído: '$contacto'")
+                return contacto
             }
         }
 
         // Buscar nombre después de palabras clave
-        val contactKeywords = listOf("llamar", "contactar", "hablar", "marcar")
+        val contactKeywords = listOf("llamar", "contactar", "hablar", "marcar", "telefonear")
         val words = input.split(" ")
         val keywordIndex = words.indexOfFirst { it.lowercase() in contactKeywords }
 
         if (keywordIndex != -1 && keywordIndex < words.size - 1) {
-            return words.subList(keywordIndex + 1, words.size).joinToString(" ")
+            val contacto = words.subList(keywordIndex + 1, words.size).joinToString(" ")
+            Log.d("INTENT_DEBUG", "   📞 Contacto por keywords: '$contacto'")
+            return contacto
         }
 
+        Log.d("INTENT_DEBUG", "   📞 Contacto no detectado - usando vacío")
         return "" // No se detectó nombre específico
+    }
+
+    // ✅ NUEVO MÉTODO: Extraer consulta de búsqueda
+    private fun extractSearchQuery(input: String): String {
+        val patterns = listOf(
+            "buscar (.+)".toRegex(),
+            "buscar en internet (.+)".toRegex(),
+            "buscar en web (.+)".toRegex(),
+            "buscar online (.+)".toRegex(),
+            "investigar en internet (.+)".toRegex(),
+            "explicar (.+)".toRegex(),
+            "qué es (.+)".toRegex(),
+            "que es (.+)".toRegex(),
+            "quién es (.+)".toRegex(),
+            "quien es (.+)".toRegex(),
+            "cómo funciona (.+)".toRegex(),
+            "como funciona (.+)".toRegex(),
+            "dime sobre (.+)".toRegex(),
+            "información sobre (.+)".toRegex(),
+            "informacion sobre (.+)".toRegex(),
+            "encontrar (.+)".toRegex(),
+            "muestra (.+)".toRegex(),
+            "enseña (.+)".toRegex()
+        )
+
+        patterns.forEach { pattern ->
+            val match = pattern.find(input.lowercase())
+            if (match != null) {
+                val query = match.groupValues[1].trim()
+                Log.d("INTENT_DEBUG", "   🔍 Query extraída: '$query'")
+                return query
+            }
+        }
+
+        // Si no encuentra patrón, usar todo el input después de palabras clave
+        val searchKeywords = listOf("buscar", "explicar", "qué es", "que es", "quién es", "quien es", "cómo", "como", "dime", "información", "informacion", "encontrar", "muestra", "enseña")
+        val words = input.split(" ")
+        val keywordIndex = words.indexOfFirst { it.lowercase() in searchKeywords }
+
+        if (keywordIndex != -1 && keywordIndex < words.size - 1) {
+            val query = words.subList(keywordIndex + 1, words.size).joinToString(" ")
+            Log.d("INTENT_DEBUG", "   🔍 Query por keywords: '$query'")
+            return query
+        }
+
+        Log.d("INTENT_DEBUG", "   🔍 Query fallback: usando input completo")
+        return input // Fallback
     }
 }
