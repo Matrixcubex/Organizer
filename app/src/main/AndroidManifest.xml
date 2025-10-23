@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.organizer">
-    <!-- En AndroidManifest.xml - AGREGAR permisos -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- Permisos deben estar aquí, antes de <application> -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
@@ -16,56 +12,47 @@
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Organizer">
+
+        <!-- ⚠️ SOLO DEJA ESTA LÍNEA - ELIMINA LAS OTRAS -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD0gWVjolSmCvDfdo5o3shDEjVALauKDDU"/>
+
+        <!-- Tus actividades... -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ActivitiesActivity" />
         <activity android:name=".ChatActivity" />
-
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="true">
+        <activity android:name=".ui.MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDxSCysA9I_FyYYBsUXs0rRPmySqBjZfX8"/>
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDxSCysA9I_FyYYBsUXs0rRPmySqBjZfX8"/>
 
-        <activity
-            android:name=".utils.MapPickerActivity"
-            android:theme="@style/Theme.MaterialComponents.Dialog" />
-        <activity android:name=".ActivitiesActivity" />
-        <activity android:name=".ChatActivity" />
+
+        <activity android:name=".utils.MapPickerActivity" android:theme="@style/Theme.MaterialComponents.Dialog" />
         <activity android:name=".AgendaActivity" />
         <activity android:name=".RecordatorioActivity" />
         <activity android:name=".UbicacionActivity" />
         <activity android:name=".TelefonoActivity" />
-        <activity
-            android:name=".ui.consult.ConsultActivity"
-            android:label="Consultar Eventos" />
+        <activity android:name=".ui.consult.ConsultActivity" android:label="Consultar Eventos" />
 
-        <!-- Receiver para notificaciones -->
         <receiver android:name=".receiver.EventNotificationReceiver" />
     </application>
 </manifest>

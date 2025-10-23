@@ -59,6 +59,7 @@ id btnMonth
 id btnRange
 id btnRefresh
 id btnRestore
+id btnStartListening
 id btnToday
 id btnYear
 id btn_activate
@@ -116,6 +117,8 @@ id statusFilterSpinner
 id statusSpinner
 id timeEditText
 id titleEditText
+id tvResult
+id tvStatus
 id tv_contact_name
 id tv_contact_phone
 id tv_message
@@ -132,6 +135,7 @@ layout activity_main
 layout activity_recordatorio
 layout activity_telefono
 layout activity_ubicacion
+layout activity_voice_assistant
 layout dialog_map_picker
 layout fragment_about
 layout fragment_add_event

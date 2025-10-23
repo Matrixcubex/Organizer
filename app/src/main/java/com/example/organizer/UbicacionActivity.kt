@@ -1,10 +1,10 @@
-// UbicacionActivity.kt - AGREGAR funcionalidad de rutas
 package com.example.organizer
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -26,6 +26,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
+import android.graphics.Color
 
 class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -82,7 +83,12 @@ class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback {
         btnBuscar.setOnClickListener {
             val direccion = etDireccion.text.toString().trim()
             if (direccion.isNotEmpty()) {
-                buscarDireccionEnMapa(direccion)
+                // ✅ ACTUALIZAR ubicación antes de buscar
+                actualizarUbicacionActual()
+                // Pequeño delay para asegurar que tenemos la ubicación actual
+                etDireccion.postDelayed({
+                    buscarDireccionEnMapa(direccion)
+                }, 500)
             } else {
                 Toast.makeText(this, "Ingresa una dirección", Toast.LENGTH_SHORT).show()
             }
@@ -180,6 +186,18 @@ class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    // ✅ NUEVO MÉTODO: Actualizar ubicación actual
+    private fun actualizarUbicacionActual() {
+        if (!checkLocationPermission()) return
+
+        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+            location?.let {
+                ubicacionActual = LatLng(it.latitude, it.longitude)
+                Log.d("MAP_DEBUG", "Ubicación actualizada: $ubicacionActual")
+            }
+        }
+    }
+
     private fun buscarDireccionEnMapa(direccion: String) {
         if (ubicacionActual == null) {
             Toast.makeText(this, "Obteniendo ubicación actual...", Toast.LENGTH_SHORT).show()
@@ -194,7 +212,11 @@ class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback {
             "hospital" to LatLng(19.4285, -99.1276),
             "escuela" to LatLng(19.4400, -99.1400),
             "supermercado" to LatLng(19.4350, -99.1300),
-            "centro comercial" to LatLng(19.4380, -99.1350)
+            "centro comercial" to LatLng(19.4380, -99.1350),
+            "mexico" to LatLng(19.4326, -99.1332),
+            "cdmx" to LatLng(19.4326, -99.1332),
+            "guadalajara" to LatLng(20.6597, -103.3496),
+            "monterrey" to LatLng(25.6866, -100.3161)
         )
 
         val ubicacionDestino = ubicacionesConocidas[direccion.lowercase()]
@@ -218,14 +240,17 @@ class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback {
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
         )
 
-        // Dibujar ruta (línea recta para demostración - en producción usarías Directions API)
-        val ruta = PolylineOptions()
+        // ✅ CORREGIDO: Primero dibujar línea recta inmediatamente
+        val rutaRecta = PolylineOptions()
             .add(ubicacionActual!!, ubicacionDestino)
-            .width(8f)
-            .color(0xFFFF0000.toInt()) // Rojo
+            .width(6f)
+            .color(Color.RED) // Rojo para línea recta
             .geodesic(true)
 
-        mMap.addPolyline(ruta)
+        mMap.addPolyline(rutaRecta)
+
+        // ✅ CORREGIDO: LUEGO calcular ruta real con Directions API
+        calcularRutaReal(ubicacionActual!!, ubicacionDestino)
 
         // Ajustar cámara para mostrar ambos puntos
         val bounds = com.google.android.gms.maps.model.LatLngBounds.Builder()
@@ -235,38 +260,116 @@ class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback {
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100))
 
-        Toast.makeText(this, "Ruta calculada hacia: $direccion", Toast.LENGTH_SHORT).show()
-
-        // En una implementación real, aquí llamarías a la Google Directions API
-        // calcularRutaConDirectionsAPI(ubicacionActual!!, ubicacionDestino)
+        Toast.makeText(this, "Calculando ruta hacia: $direccion...", Toast.LENGTH_SHORT).show()
     }
 
-    // ✅ MÉTODO PARA RUTAS REALES CON GOOGLE DIRECTIONS API (OPCIONAL)
-    private fun calcularRutaConDirectionsAPI(origen: LatLng, destino: LatLng) {
+    // ✅ MÉTODO PARA RUTAS REALES CON GOOGLE DIRECTIONS API
+    private fun calcularRutaReal(origen: LatLng, destino: LatLng) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val url = "https://maps.googleapis.com/maps/api/directions/json?" +
                         "origin=${origen.latitude},${origen.longitude}" +
                         "&destination=${destino.latitude},${destino.longitude}" +
+                        "&mode=driving" + // Puedes cambiar a walking, transit, etc.
                         "&key=$GOOGLE_DIRECTIONS_API_KEY"
+
+                Log.d("MAP_DEBUG", "Calculando ruta con URL: $url")
 
                 val connection = URL(url).openConnection() as HttpsURLConnection
                 connection.requestMethod = "GET"
+                connection.connectTimeout = 10000
+                connection.readTimeout = 10000
 
                 val response = connection.inputStream.bufferedReader().use { it.readText() }
                 val jsonResponse = JSONObject(response)
 
-                // Procesar la respuesta y dibujar la ruta en el mapa
-                runOnUiThread {
-                    procesarRespuestaDirections(jsonResponse)
+                Log.d("MAP_DEBUG", "Respuesta Directions API: ${jsonResponse.getString("status")}")
+
+                if (jsonResponse.getString("status") == "OK") {
+                    val routes = jsonResponse.getJSONArray("routes")
+                    val route = routes.getJSONObject(0)
+                    val legs = route.getJSONArray("legs")
+                    val leg = legs.getJSONObject(0)
+
+                    val distance = leg.getJSONObject("distance").getString("text")
+                    val duration = leg.getJSONObject("duration").getString("text")
+
+                    val polyline = route.getJSONObject("overview_polyline").getString("points")
+                    val decodedPath = decodePolyline(polyline)
+
+                    runOnUiThread {
+                        dibujarRutaEnMapa(decodedPath, distance, duration)
+                        Toast.makeText(this@UbicacionActivity, "Ruta calculada: $distance, $duration", Toast.LENGTH_LONG).show()
+                    }
+                } else {
+                    runOnUiThread {
+                        Toast.makeText(this@UbicacionActivity, "No se pudo calcular la ruta: ${jsonResponse.getString("status")}", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
             } catch (e: Exception) {
+                Log.e("MAP_DEBUG", "Error al calcular ruta: ${e.message}")
                 runOnUiThread {
                     Toast.makeText(this@UbicacionActivity, "Error al calcular ruta: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private fun decodePolyline(encoded: String): List<LatLng> {
+        val poly = ArrayList<LatLng>()
+        var index = 0
+        val len = encoded.length
+        var lat = 0
+        var lng = 0
+
+        while (index < len) {
+            var b: Int
+            var shift = 0
+            var result = 0
+            do {
+                b = encoded[index++].code - 63
+                result = result or (b and 0x1f shl shift)
+                shift += 5
+            } while (b >= 0x20)
+            val dlat = if (result and 1 != 0) (result shr 1).inv() else result shr 1
+            lat += dlat
+
+            shift = 0
+            result = 0
+            do {
+                b = encoded[index++].code - 63
+                result = result or (b and 0x1f shl shift)
+                shift += 5
+            } while (b >= 0x20)
+            val dlng = if (result and 1 != 0) (result shr 1).inv() else result shr 1
+            lng += dlng
+
+            val latLng = LatLng(lat / 1E5, lng / 1E5)
+            poly.add(latLng)
+        }
+        return poly
+    }
+
+    private fun dibujarRutaEnMapa(path: List<LatLng>, distance: String, duration: String) {
+        // ✅ DIBUJAR RUTA REAL EN AZUL
+        mMap.addPolyline(
+            PolylineOptions()
+                .addAll(path)
+                .width(12f)
+                .color(Color.BLUE)
+                .geodesic(true)
+        )
+
+        // Agregar marcador informativo
+        mMap.addMarker(
+            MarkerOptions()
+                .position(path.first())
+                .title("Inicio - Distancia: $distance, Tiempo: $duration")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+        )
+
+        Log.d("MAP_DEBUG", "Ruta dibujada: ${path.size} puntos, $distance, $duration")
     }
 
     private fun procesarRespuestaDirections(jsonResponse: JSONObject) {

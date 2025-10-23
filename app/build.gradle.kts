@@ -33,6 +33,35 @@ android {
 }
 
 dependencies {
+    // AGREGAR ESTAS:
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.json:json:20210307")
+
+    // ViewBinding (si no lo tienes)
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
+    // Para corrutinas (si no las tienes)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // Para JSON
+    implementation("org.json:json:20210307")
+
+    // Ya tienes estas para Maps:
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    // Para IA (OpenAI API)
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
+    // Para voz (ya incluidas en Android)
+    // implementation("androidx.core:core-ktx:1.6.0") // Ya tienes
+
+    // Para corrutinas (si no las tienes)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // Para JSON
+    implementation("org.json:json:20210307")
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.google.http-client:google-http-client-android:1.42.2")
     implementation(libs.gms.drive)   // ← nuevo

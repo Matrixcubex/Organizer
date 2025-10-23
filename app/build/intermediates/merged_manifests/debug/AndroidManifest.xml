@@ -7,14 +7,10 @@
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="30" />
-    <!-- En AndroidManifest.xml - AGREGAR permisos -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- Permisos deben estar aquí, antes de <application> -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -24,7 +20,6 @@
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
@@ -54,6 +49,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Organizer" >
+
+        <!-- ⚠️ SOLO DEJA ESTA LÍNEA - ELIMINA LAS OTRAS -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD0gWVjolSmCvDfdo5o3shDEjVALauKDDU" />
+
+        <!-- Tus actividades... -->
         <activity android:name="com.example.organizer.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,19 +74,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDxSCysA9I_FyYYBsUXs0rRPmySqBjZfX8" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDxSCysA9I_FyYYBsUXs0rRPmySqBjZfX8" />
-
         <activity
             android:name="com.example.organizer.utils.MapPickerActivity"
             android:theme="@style/Theme.MaterialComponents.Dialog" />
-        <activity android:name="com.example.organizer.ActivitiesActivity" />
-        <activity android:name="com.example.organizer.ChatActivity" />
         <activity android:name="com.example.organizer.AgendaActivity" />
         <activity android:name="com.example.organizer.RecordatorioActivity" />
         <activity android:name="com.example.organizer.UbicacionActivity" />
@@ -93,8 +85,11 @@
             android:name="com.example.organizer.ui.consult.ConsultActivity"
             android:label="Consultar Eventos" />
 
-        <!-- Receiver para notificaciones -->
         <receiver android:name="com.example.organizer.receiver.EventNotificationReceiver" />
+        <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
@@ -109,10 +104,7 @@
             android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
             android:exported="true"
             android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+            android:visibleToInstantApps="true" />
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

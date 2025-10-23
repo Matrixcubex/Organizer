@@ -3247,6 +3247,7 @@ id btnMonth
 id btnRange
 id btnRefresh
 id btnRestore
+id btnStartListening
 id btnToday
 id btnYear
 id btn_activate
@@ -3684,6 +3685,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvResult
+id tvStatus
 id tv_contact_name
 id tv_contact_phone
 id tv_message
@@ -3839,6 +3842,7 @@ layout activity_main
 layout activity_recordatorio
 layout activity_telefono
 layout activity_ubicacion
+layout activity_voice_assistant
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

@@ -1,3 +1,4 @@
+// REEMPLAZAR todo el archivo CentralAIService.kt con:
 package com.example.organizer.ai
 
 import android.content.Context
@@ -14,36 +15,61 @@ class CentralAIService(private val context: Context) {
     private val locationProcessor = LocationProcessor(context)
     private val contactProcessor = ContactProcessor(context)
     private val searchProcessor = SearchProcessor(context)
-    private val webSearchProcessor = WebSearchProcessor(context) // ← NUEVO procesador
+    private val webSearchProcessor = WebSearchProcessor(context)
     private val emergencyProcessor = EmergencyProcessor(context)
-    private val chatProcessor = ChatProcessor()
+    private val chatProcessor = ChatProcessor(context)
 
+    // ENUM simple para tipo de input
+    enum class InputType {
+        TEXT, VOICE
+    }
+    private fun isInternetSearchRequest(input: String): Boolean {
+        val searchPatterns = listOf(
+            "buscar en internet",
+            "buscar en la web",
+            "buscar video",
+            "buscar vídeo",
+            "ver video",
+            "ver vídeo",
+            "youtube",
+            "navegador",
+            "chrome",
+            "internet"
+        )
+        return searchPatterns.any { input.contains(it, ignoreCase = true) }
+    }
     fun processInput(userInput: String, inputType: InputType): Action {
         Log.d("AI_DEBUG", "=== INICIANDO PROCESAMIENTO ===")
         Log.d("AI_DEBUG", "Input recibido: '$userInput'")
-        Log.d("AI_DEBUG", "Tipo: $inputType")
 
-        // Usar el reconocedor de intenciones
-        val parsedCommand = intentRecognizer.recognizeIntent(userInput)
+        // ✅ PRIMERO: Verificar si es una búsqueda directa en internet
+        if (isInternetSearchRequest(userInput)) {
+            Log.d("AI_DEBUG", "🎯 Detectada búsqueda directa en internet")
+            val query = extractSearchQuery(userInput)
+            return webSearchProcessor.processInternetSearch(query)
+        }
+
+        // ✅ SEGUNDO: Usar el reconocedor de intenciones para otros casos
+        val parsedCommand = intentRecognizer.recognizeIntent(userInput) // ← CORRECTO (usa Simple por ahora)
+
 
         Log.d("AI_DEBUG", "Intención detectada: ${parsedCommand.intention}")
         Log.d("AI_DEBUG", "Confianza: ${parsedCommand.confidence}")
-        Log.d("AI_DEBUG", "Parámetros: ${parsedCommand.parameters}")
 
         val action = when (parsedCommand.intention) {
-            is UserIntention.Agenda -> {
+            UserIntention.Agenda -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando AgendaProcessor")
                 agendaProcessor.process(parsedCommand)
             }
-            is UserIntention.Recordatorio -> {
+            UserIntention.Recordatorio -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando ReminderProcessor")
                 reminderProcessor.process(parsedCommand)
             }
-            is UserIntention.Ubicacion -> {
+            UserIntention.Ubicacion -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando LocationProcessor")
                 locationProcessor.process(parsedCommand)
             }
-            is UserIntention.Contacto -> {
+            UserIntention.Contacto -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando ContactProcessor")
                 if (parsedCommand.parameters["emergencia"] == "true") {
                     Log.d("AI_DEBUG", "🚨 Es una EMERGENCIA")
@@ -53,31 +79,16 @@ class CentralAIService(private val context: Context) {
                     contactProcessor.process(parsedCommand)
                 }
             }
-            is UserIntention.Busqueda -> {
-                // ✅ NUEVA LÓGICA: Distinguir entre tipos de búsqueda
-                val tipoBusqueda = parsedCommand.parameters["tipo"] ?: ""
-                Log.d("AI_DEBUG", "🎯 Tipo de búsqueda detectado: '$tipoBusqueda'")
-
-                when {
-                    tipoBusqueda.contains("explicar") -> {
-                        Log.d("AI_DEBUG", "📚 Ejecutando WebSearchProcessor para EXPLICAR")
-                        webSearchProcessor.process(parsedCommand)
-                    }
-                    tipoBusqueda.contains("web") || tipoBusqueda.contains("internet") -> {
-                        Log.d("AI_DEBUG", "🌐 Ejecutando WebSearchProcessor para BÚSQUEDA WEB")
-                        webSearchProcessor.process(parsedCommand)
-                    }
-                    else -> {
-                        Log.d("AI_DEBUG", "🔍 Ejecutando SearchProcessor (búsqueda normal)")
-                        searchProcessor.process(parsedCommand)
-                    }
-                }
+            UserIntention.Busqueda -> {
+                Log.d("AI_DEBUG", "🎯 Ejecutando WebSearchProcessor")
+                webSearchProcessor.process(parsedCommand)
             }
-            is UserIntention.ChatGeneral -> {
+            UserIntention.ChatGeneral -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando ChatProcessor")
+                // ✅ El ChatProcessor ahora manejará tanto conversación normal como búsquedas en internet
                 chatProcessor.process(parsedCommand)
             }
-            is UserIntention.Desconocido -> {
+            else -> {
                 Log.d("AI_DEBUG", "🎯 Ejecutando handleUnknown")
                 handleUnknown(parsedCommand)
             }
@@ -88,10 +99,13 @@ class CentralAIService(private val context: Context) {
 
         return action
     }
+    private fun extractSearchQuery(input: String): String {
+        return input.replace(Regex("(?i)buscar|en internet|en la web|video|vídeo|ver|youtube|navegador|chrome"), "").trim()
+    }
 
     private fun handleUnknown(parsedCommand: ParsedCommand): Action {
         return Action(
-            intention = UserIntention.Desconocido,
+            intention = UserIntention.ChatGeneral,
             parameters = emptyMap(),
             response = "No estoy seguro de qué necesitas. ¿Puedes ser más específico?\n\n" +
                     "Puedo ayudarte con:\n" +

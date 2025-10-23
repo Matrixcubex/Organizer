@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.organizer.app-mergeDebugResources-46:/values-de/values-de.xml",
+            "outputFile": "com.example.organizer.app-mergeDebugResources-3:/values-de/values-de.xml",
             "map": [
                 {
                     "source": "C:\\Users\\adria\\.gradle\\caches\\8.11.1\\transforms\\e7b7160ab23fb307391ee7ab5376bf31\\transformed\\navigation-ui-2.3.5\\res\\values-de\\values-de.xml",

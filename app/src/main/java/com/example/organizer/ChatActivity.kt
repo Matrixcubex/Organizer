@@ -11,7 +11,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.organizer.ai.CentralAIService
-import com.example.organizer.ai.models.InputType
 
 class ChatActivity : AppCompatActivity() {
 
@@ -83,7 +82,8 @@ class ChatActivity : AppCompatActivity() {
 
         Thread {
             try {
-                val action = aiService.processInput(userMessage, InputType.TEXT)
+                // ✅ CORREGIDO: usar la variable correcta "aiService" y "userMessage"
+                val action = aiService.processInput(userMessage, CentralAIService.InputType.TEXT)
 
                 runOnUiThread {
                     removeTypingIndicator()
@@ -116,7 +116,7 @@ class ChatActivity : AppCompatActivity() {
     private fun showTypingIndicator() {
         runOnUiThread {
             val typingView = LayoutInflater.from(this).inflate(R.layout.layout_message_assistant, chatContainer, false)
-            typingView.id = R.id.typing_indicator
+            typingView.id = View.generateViewId() // ✅ CORREGIDO: generar ID dinámico
             val tvMessage = typingView.findViewById<TextView>(R.id.tv_message)
             tvMessage.text = "escribiendo..."
             tvMessage.setTypeface(tvMessage.typeface, android.graphics.Typeface.ITALIC)
@@ -128,9 +128,14 @@ class ChatActivity : AppCompatActivity() {
 
     private fun removeTypingIndicator() {
         runOnUiThread {
-            val typingView = chatContainer.findViewById<View>(R.id.typing_indicator)
-            typingView?.let {
-                chatContainer.removeView(it)
+            // ✅ CORREGIDO: buscar por tag o eliminar el último mensaje "escribiendo..."
+            for (i in chatContainer.childCount - 1 downTo 0) {
+                val view = chatContainer.getChildAt(i)
+                val tvMessage = view.findViewById<TextView?>(R.id.tv_message)
+                if (tvMessage?.text == "escribiendo...") {
+                    chatContainer.removeView(view)
+                    break
+                }
             }
         }
     }

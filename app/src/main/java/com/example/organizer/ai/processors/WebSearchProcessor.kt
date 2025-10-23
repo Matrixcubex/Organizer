@@ -1,4 +1,4 @@
-// Crear nuevo archivo: WebSearchProcessor.kt
+// WebSearchProcessor.kt - ACTUALIZAR para manejar búsquedas en internet
 package com.example.organizer.ai.processors
 
 import android.content.Context
@@ -12,40 +12,56 @@ class WebSearchProcessor(private val context: Context) {
 
     fun process(parsedCommand: ParsedCommand): Action {
         val query = parsedCommand.parameters["query"] ?: parsedCommand.rawText
-        val tipoBusqueda = parsedCommand.parameters["tipo"] ?: "busqueda"
 
         return Action(
             intention = UserIntention.Busqueda,
             parameters = parsedCommand.parameters,
-            response = when (tipoBusqueda) {
-                "explicar" -> "🔍 Buscando información sobre: $query\n📚 Preparando explicación..."
-                else -> "🌐 Buscando en internet: $query\n📱 Abriendo navegador..."
-            },
+            response = "🔍 Buscando en internet: $query",
             execute = {
-                when (tipoBusqueda) {
-                    "explicar" -> buscarYExplicar(query)
-                    else -> buscarEnInternet(query)
-                }
+                performWebSearch(query)
             }
         )
     }
 
-    private fun buscarEnInternet(query: String) {
-        val searchUrl = "https://www.google.com/search?q=${Uri.encode(query)}"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl))
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        context.startActivity(intent)
+    // ✅ NUEVO MÉTODO: Manejar búsquedas desde el chatbot general
+    fun processInternetSearch(query: String): Action {
+        return Action(
+            intention = UserIntention.Busqueda,
+            parameters = mapOf("query" to query, "tipo" to "internet"),
+            response = "🌐 Abriendo navegador para buscar: $query",
+            execute = {
+                performWebSearch(query)
+            }
+        )
     }
 
-    private fun buscarYExplicar(query: String) {
-        // Por ahora, redirigir a búsqueda normal
-        // En la siguiente fase, integraremos IA real aquí
-        val searchUrl = "https://www.google.com/search?q=${Uri.encode(query)}"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl))
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        context.startActivity(intent)
+    private fun performWebSearch(query: String) {
+        try {
+            // Limpiar y codificar la query para URL
+            val cleanQuery = query
+                .replace("INTERNET_SEARCH:", "")
+                .replace("buscar", "")
+                .replace("en internet", "")
+                .replace("video de", "")
+                .replace("vídeo de", "")
+                .trim()
 
-        // TODO: Integrar con API de IA para generar explicaciones
-        // Esto se implementará cuando agreguemos la IA real
+            val searchUrl = "https://www.google.com/search?q=${Uri.encode(cleanQuery)}"
+
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl)).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+
+            // Verificar si hay apps que puedan manejar la intent
+            if (intent.resolveActivity(context.packageManager) != null) {
+                context.startActivity(intent)
+            } else {
+                // Fallback: abrir en navegador por defecto
+                val fallbackIntent = Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl))
+                context.startActivity(fallbackIntent)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
