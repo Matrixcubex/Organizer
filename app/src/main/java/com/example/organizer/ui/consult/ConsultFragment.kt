@@ -20,6 +20,7 @@ import com.example.organizer.utils.DatabaseProvider
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
+import android.util.Log
 
 class ConsultFragment : Fragment() {
     private var _binding: FragmentConsultBinding? = null
@@ -40,7 +41,18 @@ class ConsultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
+        setupButtons()
+        setupSpinners()
+        setupTooltips()
+
+        // ✅ DEBUG: Ver contenido de la base de datos
+        debugDatabaseContents()
+
+        loadEventsForToday()
+        updateFilterStatus("Eventos de Hoy")
         setupRecyclerView()
         setupButtons()
         setupSpinners()
@@ -201,20 +213,28 @@ class ConsultFragment : Fragment() {
         updateFilterStatus("Eventos Filtrados")
     }
 
+    // En ConsultFragment.kt - MODIFICAR el método loadEventsForToday:
     private fun loadEventsForToday() {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val today = dateFormat.format(Date())
-        val events = dbHelper.getEventsByDate(today)
-        adapter.updateEvents(events)
 
-        // Heurística 1: Feedback del resultado
-        if (events.isEmpty()) {
-            showInfo("No hay eventos programados para hoy")
-        } else {
-            showSuccess("${events.size} eventos encontrados para hoy")
+        // ✅ OBTENER TODOS LOS EVENTOS (no solo por fecha específica)
+        val allEvents = dbHelper.getEvents()
+        val todayEvents = allEvents.filter { event ->
+            // Mostrar eventos de hoy O recordatorios diarios
+            event.date == today || event.date == "DIARIO"
         }
 
-        updateEmptyState(events.isEmpty())
+        adapter.updateEvents(todayEvents)
+
+        // Heurística 1: Feedback del resultado
+        if (todayEvents.isEmpty()) {
+            showInfo("No hay eventos programados para hoy")
+        } else {
+            showSuccess("${todayEvents.size} eventos encontrados para hoy")
+        }
+
+        updateEmptyState(todayEvents.isEmpty())
     }
 
     private fun loadEventsForCurrentMonth() {
@@ -247,7 +267,14 @@ class ConsultFragment : Fragment() {
 
         updateEmptyState(events.isEmpty())
     }
-
+    private fun debugDatabaseContents() {
+        val allEvents = dbHelper.getEvents()
+        Log.d("DB_DEBUG", "=== CONTENIDO DE LA BASE DE DATOS ===")
+        allEvents.forEach { event ->
+            Log.d("DB_DEBUG", "ID: ${event.id}, Tipo: ${event.type}, Fecha: ${event.date}, Título: ${event.title}")
+        }
+        Log.d("DB_DEBUG", "Total eventos: ${allEvents.size}")
+    }
     private fun refreshEvents() {
         // Heurística 1: Feedback de actualización
         binding.progressBar.visibility = View.VISIBLE

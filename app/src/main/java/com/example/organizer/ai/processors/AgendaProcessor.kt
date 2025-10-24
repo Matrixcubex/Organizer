@@ -9,6 +9,7 @@ import com.example.organizer.data.model.Event
 import com.example.organizer.utils.NotificationHelper
 import java.text.SimpleDateFormat
 import java.util.*
+import android.util.Log
 
 class AgendaProcessor(private val context: Context) {
 
@@ -59,6 +60,7 @@ class AgendaProcessor(private val context: Context) {
             }
         )
     }
+
 
     private fun extractEventDetails(input: String): EventDetails {
         val lowerInput = input.lowercase()
@@ -162,10 +164,12 @@ class AgendaProcessor(private val context: Context) {
         return timeRegex.find(input)?.value
     }
 
+    // AgendaProcessor.kt - VERSIÓN CORREGIDA
+    // En AgendaProcessor.kt - MODIFICAR el método saveEventToDatabase:
     private fun saveEventToDatabase(titulo: String, descripcion: String, fecha: String, hora: String, tipo: String): Long {
         val event = Event(
             title = titulo,
-            type = tipo,
+            type = "cita", // ✅ TIPO FIJO PARA EVENTOS
             contactName = "",
             contactId = "",
             locationLat = 0.0,

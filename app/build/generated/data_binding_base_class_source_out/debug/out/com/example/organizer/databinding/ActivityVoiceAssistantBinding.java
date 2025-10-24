@@ -24,15 +24,20 @@ public final class ActivityVoiceAssistantBinding implements ViewBinding {
   public final Button btnStartListening;
 
   @NonNull
+  public final Button btnStopListening;
+
+  @NonNull
   public final TextView tvResult;
 
   @NonNull
   public final TextView tvStatus;
 
   private ActivityVoiceAssistantBinding(@NonNull LinearLayout rootView,
-      @NonNull Button btnStartListening, @NonNull TextView tvResult, @NonNull TextView tvStatus) {
+      @NonNull Button btnStartListening, @NonNull Button btnStopListening,
+      @NonNull TextView tvResult, @NonNull TextView tvStatus) {
     this.rootView = rootView;
     this.btnStartListening = btnStartListening;
+    this.btnStopListening = btnStopListening;
     this.tvResult = tvResult;
     this.tvStatus = tvStatus;
   }
@@ -70,6 +75,12 @@ public final class ActivityVoiceAssistantBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnStopListening;
+      Button btnStopListening = ViewBindings.findChildViewById(rootView, id);
+      if (btnStopListening == null) {
+        break missingId;
+      }
+
       id = R.id.tvResult;
       TextView tvResult = ViewBindings.findChildViewById(rootView, id);
       if (tvResult == null) {
@@ -82,8 +93,8 @@ public final class ActivityVoiceAssistantBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityVoiceAssistantBinding((LinearLayout) rootView, btnStartListening, tvResult,
-          tvStatus);
+      return new ActivityVoiceAssistantBinding((LinearLayout) rootView, btnStartListening,
+          btnStopListening, tvResult, tvStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -3064,6 +3064,7 @@ id btnRange
 id btnRefresh
 id btnRestore
 id btnStartListening
+id btnStopListening
 id btnToday
 id btnYear
 id btn_activate
@@ -3256,6 +3257,7 @@ id locale
 id locationButton
 id ltr
 id m3_side_sheet
+id main_container
 id map
 id marquee
 id masked
@@ -3501,6 +3503,7 @@ id toggle
 id top
 id topPanel
 id touch_outside
+id transcription_container
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -3516,6 +3519,8 @@ id tv_contact_phone
 id tv_drive_status
 id tv_message
 id tv_status
+id tv_title
+id tv_transcription
 id typeFilterSpinner
 id typeSpinner
 id typing_indicator
@@ -3534,6 +3539,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id webView
 id west
 id wide
 id withText
@@ -3661,6 +3667,7 @@ layout activity_recordatorio
 layout activity_telefono
 layout activity_ubicacion
 layout activity_voice_assistant
+layout activity_web_search
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

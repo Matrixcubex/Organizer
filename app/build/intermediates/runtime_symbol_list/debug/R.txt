@@ -3063,6 +3063,7 @@ int id btnRange 0x7f09006f
 int id btnRefresh 0x7f090070
 int id btnRestore 0x7f090071
 int id btnStartListening 0x7f090072
+int id btnStopListening 0x7f090253
 int id btnToday 0x7f090073
 int id btnYear 0x7f090074
 int id btn_activate 0x7f090075
@@ -3255,6 +3256,7 @@ int id locale 0x7f09012f
 int id locationButton 0x7f090130
 int id ltr 0x7f090131
 int id m3_side_sheet 0x7f090132
+int id main_container 0x7f090254
 int id map 0x7f090133
 int id marquee 0x7f090134
 int id masked 0x7f090135
@@ -3500,6 +3502,7 @@ int id toggle 0x7f090224
 int id top 0x7f090225
 int id topPanel 0x7f090226
 int id touch_outside 0x7f090227
+int id transcription_container 0x7f090255
 int id transitionToEnd 0x7f090228
 int id transitionToStart 0x7f090229
 int id transition_current_scene 0x7f09022a
@@ -3515,6 +3518,8 @@ int id tv_contact_phone 0x7f090233
 int id tv_drive_status 0x7f090234
 int id tv_message 0x7f090235
 int id tv_status 0x7f090236
+int id tv_title 0x7f090257
+int id tv_transcription 0x7f090256
 int id typeFilterSpinner 0x7f090237
 int id typeSpinner 0x7f090238
 int id typing_indicator 0x7f090239
@@ -3533,6 +3538,7 @@ int id view_tree_saved_state_registry_owner 0x7f090245
 int id view_tree_view_model_store_owner 0x7f090246
 int id visible 0x7f090247
 int id visible_removing_fragment_view_tag 0x7f090248
+int id webView 0x7f090258
 int id west 0x7f090249
 int id wide 0x7f09024a
 int id withText 0x7f09024b
@@ -3660,6 +3666,7 @@ int layout activity_recordatorio 0x7f0c0021
 int layout activity_telefono 0x7f0c0022
 int layout activity_ubicacion 0x7f0c0023
 int layout activity_voice_assistant 0x7f0c0024
+int layout activity_web_search 0x7f0c007e
 int layout custom_dialog 0x7f0c0025
 int layout design_bottom_navigation_item 0x7f0c0026
 int layout design_bottom_sheet_dialog 0x7f0c0027

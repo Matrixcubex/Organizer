@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.organizer.data.ContactAdapter
 import com.example.organizer.data.model.Contact
-
+import android.util.Log
 class TelefonoActivity : AppCompatActivity() {
 
     private lateinit var btnBack: Button
@@ -176,16 +176,36 @@ class TelefonoActivity : AppCompatActivity() {
         Toast.makeText(this, "${listaContactos.size} contactos cargados", Toast.LENGTH_SHORT).show()
 
         // Si hay búsqueda específica del chatbot y encontramos un contacto, llamar automáticamente
-        if (contactoBuscado.isNotEmpty() && contactosFiltrados.size == 1) {
-            // Pequeño delay para que el usuario vea qué está pasando
-            recyclerContactos.postDelayed({
-                realizarLlamada(contactosFiltrados[0].telefono)
-            }, 1000)
+        // Si hay búsqueda específica del chatbot y encontramos contactos
+        if (contactoBuscado.isNotEmpty()) {
+            Log.d("AUTO_CALL", "Búsqueda automática para: '$contactoBuscado'")
+            Log.d("AUTO_CALL", "Contactos encontrados: ${contactosFiltrados.size}")
+
+            if (contactosFiltrados.size == 1) {
+                // Solo un contacto encontrado - llamar automáticamente
+                val contacto = contactosFiltrados[0]
+                Log.d("AUTO_CALL", "Llamando automáticamente a: ${contacto.nombre} - ${contacto.telefono}")
+
+                recyclerContactos.postDelayed({
+                    realizarLlamada(contacto.telefono)
+                }, 1500)
+            } else if (contactosFiltrados.size > 1) {
+                // Múltiples contactos - mostrar toast
+                Toast.makeText(this,
+                    "${contactosFiltrados.size} contactos encontrados. Selecciona uno.",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                // Ningún contacto encontrado
+                Toast.makeText(this,
+                    "No se encontró el contacto '$contactoBuscado'",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
     private fun filtrarContactos(busqueda: String) {
-        // VERIFICAR que contactAdapter esté inicializado
         if (!::contactAdapter.isInitialized) {
             return
         }
@@ -196,15 +216,43 @@ class TelefonoActivity : AppCompatActivity() {
             contactosFiltrados.addAll(listaContactos)
         } else {
             val busquedaLower = busqueda.lowercase()
+                .replace("á", "a")
+                .replace("é", "e")
+                .replace("í", "i")
+                .replace("ó", "o")
+                .replace("ú", "u")
+
             contactosFiltrados.addAll(
-                listaContactos.filter {
-                    it.nombre.lowercase().contains(busquedaLower) ||
-                            it.telefono.contains(busqueda)
+                listaContactos.filter { contacto ->
+                    // Buscar en nombre (sin acentos)
+                    val nombreLower = contacto.nombre.lowercase()
+                        .replace("á", "a")
+                        .replace("é", "e")
+                        .replace("í", "i")
+                        .replace("ó", "o")
+                        .replace("ú", "u")
+
+                    // Buscar en teléfono (solo números)
+                    val telefonoLimpio = contacto.telefono.replace(Regex("[^0-9]"), "")
+                    val busquedaNumeros = busqueda.replace(Regex("[^0-9]"), "")
+
+                    // Coincidencia parcial en nombre O coincidencia en teléfono
+                    nombreLower.contains(busquedaLower) ||
+                            contacto.nombre.lowercase().contains(busquedaLower) ||
+                            telefonoLimpio.contains(busquedaNumeros)
                 }
             )
         }
 
         contactAdapter.notifyDataSetChanged()
+
+        // DEBUG: Mostrar cuántos contactos encontró
+        Log.d("CONTACT_SEARCH", "Búsqueda: '$busqueda' - Encontrados: ${contactosFiltrados.size}")
+
+        // Mostrar los contactos encontrados para debug
+        contactosFiltrados.forEachIndexed { index, contacto ->
+            Log.d("CONTACT_FOUND", "$index: ${contacto.nombre} - ${contacto.telefono}")
+        }
     }
 
     private fun realizarLlamada(numeroTelefono: String) {

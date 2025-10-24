@@ -10,18 +10,34 @@
         android:id="@+id/tvStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Presiona el botón para hablar"
+        android:text="Presiona 'Iniciar Escucha' para activar"
         android:textSize="18sp"
         android:gravity="center"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnStartListening"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🎤 Hablar"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/btnStartListening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎤 Iniciar Escucha"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:id="@+id/btnStopListening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏹️ Detener"
+            android:enabled="false" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvResult"
@@ -32,6 +48,7 @@
         android:textSize="16sp"
         android:gravity="top"
         android:background="#f5f5f5"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:scrollbars="vertical" />
 
 </LinearLayout>

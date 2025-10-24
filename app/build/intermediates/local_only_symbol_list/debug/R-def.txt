@@ -60,6 +60,7 @@ id btnRange
 id btnRefresh
 id btnRestore
 id btnStartListening
+id btnStopListening
 id btnToday
 id btnYear
 id btn_activate
@@ -105,6 +106,7 @@ id filterStatusText
 id fragment_container
 id homeFragment
 id locationButton
+id main_container
 id map
 id nav_graph
 id progressBar
@@ -118,6 +120,7 @@ id statusFilterSpinner
 id statusSpinner
 id timeEditText
 id titleEditText
+id transcription_container
 id tvResult
 id tvStatus
 id tv_contact_name
@@ -125,10 +128,13 @@ id tv_contact_phone
 id tv_drive_status
 id tv_message
 id tv_status
+id tv_title
+id tv_transcription
 id typeFilterSpinner
 id typeSpinner
 id typing_indicator
 id versionText
+id webView
 layout activity_activities
 layout activity_agenda
 layout activity_chat
@@ -138,6 +144,7 @@ layout activity_recordatorio
 layout activity_telefono
 layout activity_ubicacion
 layout activity_voice_assistant
+layout activity_web_search
 layout dialog_map_picker
 layout fragment_about
 layout fragment_add_event

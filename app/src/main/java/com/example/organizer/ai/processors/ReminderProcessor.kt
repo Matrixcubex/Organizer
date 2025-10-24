@@ -10,6 +10,7 @@ import com.example.organizer.data.model.Event
 import java.text.SimpleDateFormat
 import java.util.*
 import com.example.organizer.utils.NotificationHelper
+import android.util.Log
 
 class ReminderProcessor(private val context: Context) {
 
@@ -68,10 +69,11 @@ class ReminderProcessor(private val context: Context) {
         return timeRegex.find(input)?.value
     }
 
+    // ReminderProcessor.kt - VERSIÓN CORREGIDA
     private fun saveDailyReminder(titulo: String, descripcion: String, hora: String): Long {
         val event = Event(
             title = titulo,
-            type = "recordatorio_diario",
+            type = "recordatorio", // ✅ TIPO FIJO PARA RECORDATORIOS
             contactName = "",
             contactId = "",
             locationLat = 0.0,

@@ -1,11 +1,10 @@
 package com.example.organizer.ui.home
 
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.organizer.R
+import com.example.organizer.databinding.ItemEventBinding
 import com.example.organizer.data.model.Event
 
 class EventAdapter(
@@ -15,32 +14,56 @@ class EventAdapter(
     private val onMapClick: (Pair<Double, Double>) -> Unit
 ) : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
-    inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.eventTitle)
-        val date: TextView = itemView.findViewById(R.id.eventDate)
-        val time: TextView = itemView.findViewById(R.id.eventTime)
-        val contact: TextView = itemView.findViewById(R.id.eventContact)
-        val description: TextView = itemView.findViewById(R.id.eventDescription)
-        val status: TextView = itemView.findViewById(R.id.eventStatus)
-        val type: TextView = itemView.findViewById(R.id.eventType)
+    inner class EventViewHolder(private val binding: ItemEventBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(event: Event) {
-            title.text = event.title
-            date.text = event.date
-            time.text = event.time
-            contact.text = event.contactName
-            description.text = event.description
-            status.text = event.status
-            type.text = event.type
+            binding.eventTitle.text = event.title
+            binding.eventDescription.text = event.description ?: ""
+            binding.eventTime.text = event.time
 
-            itemView.setOnClickListener { onItemClick(event) }
+            // ✅ DIFERENCIAR ENTRE EVENTOS Y RECORDATORIOS
+            if (event.date == "DIARIO") {
+                binding.eventDate.text = "🔄 Diario"
+                binding.eventDate.setTextColor(Color.BLUE)
+            } else {
+                binding.eventDate.text = event.date
+                binding.eventDate.setTextColor(Color.BLACK)
+            }
+
+            // Set contact if available
+            if (event.contactName.isNotEmpty()) {
+                binding.eventContact.text = "📞 ${event.contactName}"
+                binding.eventContact.setOnClickListener {
+                    onContactClick(event.contactId)
+                }
+                binding.eventContact.visibility = android.view.View.VISIBLE
+            } else {
+                binding.eventContact.visibility = android.view.View.GONE
+            }
+
+            // Set event type and status
+            binding.eventType.text = event.type
+            binding.eventStatus.text = event.status ?: "Pendiente"
+
+            // Set location click if available
+            if (event.locationLat != 0.0 && event.locationLng != 0.0) {
+                binding.root.setOnClickListener {
+                    onMapClick(Pair(event.locationLat, event.locationLng))
+                }
+            } else {
+                binding.root.setOnClickListener { onItemClick(event) }
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_event_table, parent, false)
-        return EventViewHolder(view)
+        val binding = ItemEventBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return EventViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {

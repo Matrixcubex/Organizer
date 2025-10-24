@@ -40,6 +40,9 @@ dependencies {
     // implementation("androidx.core:core-ktx:1.6.0")
     // implementation("androidx.core:core-ktx:1.12.0")
 
+    // ✅ HTTP CLIENT (para Gemini API)
+
+    // ✅ JSON (para procesar respuestas)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.json:json:20210307")
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
@@ -71,6 +74,14 @@ dependencies {
 
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
+    // ✅ PARA LOCAL BROADCAST MANAGER
+    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
+
+    // ✅ CORRUTINAS
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+
+
 
     // Material Design (versión compatible)
     implementation("com.google.android.material:material:1.8.0")

@@ -4,18 +4,19 @@ package com.example.organizer.data.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+// Event.kt - Hacer campos opcionales
 @Parcelize
 data class Event(
     val id: Long = 0,
     val title: String,
-    val type: String,  // "Cita", "Junta", etc.
-    val contactName: String,
-    val contactId: String,  // ID del contacto en el sistema
-    val locationLat: Double,
-    val locationLng: Double,
-    val description: String,
-    val date: String,  // Formato: "dd/MM/yyyy"
-    val time: String,  // Formato: "HH:mm"
-    val status: String,  // "Pendiente", "Realizado", etc.
-    val reminder: String  // "Ninguno", "10_minutos", "1_dia"
+    val type: String,
+    val contactName: String = "",
+    val contactId: String = "",
+    val locationLat: Double = 0.0,
+    val locationLng: Double = 0.0,
+    val description: String? = null,
+    val date: String,
+    val time: String,
+    val status: String? = "Pendiente",
+    val reminder: String? = "30"
 ) : Parcelable

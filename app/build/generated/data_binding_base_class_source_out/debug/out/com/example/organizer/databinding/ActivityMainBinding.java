@@ -33,17 +33,31 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageButton btnConsult;
 
   @NonNull
+  public final LinearLayout mainContainer;
+
+  @NonNull
+  public final LinearLayout transcriptionContainer;
+
+  @NonNull
   public final TextView tvStatus;
+
+  @NonNull
+  public final TextView tvTranscription;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull ImageButton btnActivate,
       @NonNull ImageButton btnActivities, @NonNull ImageButton btnChat,
-      @NonNull ImageButton btnConsult, @NonNull TextView tvStatus) {
+      @NonNull ImageButton btnConsult, @NonNull LinearLayout mainContainer,
+      @NonNull LinearLayout transcriptionContainer, @NonNull TextView tvStatus,
+      @NonNull TextView tvTranscription) {
     this.rootView = rootView;
     this.btnActivate = btnActivate;
     this.btnActivities = btnActivities;
     this.btnChat = btnChat;
     this.btnConsult = btnConsult;
+    this.mainContainer = mainContainer;
+    this.transcriptionContainer = transcriptionContainer;
     this.tvStatus = tvStatus;
+    this.tvTranscription = tvTranscription;
   }
 
   @Override
@@ -97,14 +111,28 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      LinearLayout mainContainer = (LinearLayout) rootView;
+
+      id = R.id.transcription_container;
+      LinearLayout transcriptionContainer = ViewBindings.findChildViewById(rootView, id);
+      if (transcriptionContainer == null) {
+        break missingId;
+      }
+
       id = R.id.tv_status;
       TextView tvStatus = ViewBindings.findChildViewById(rootView, id);
       if (tvStatus == null) {
         break missingId;
       }
 
+      id = R.id.tv_transcription;
+      TextView tvTranscription = ViewBindings.findChildViewById(rootView, id);
+      if (tvTranscription == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((LinearLayout) rootView, btnActivate, btnActivities, btnChat,
-          btnConsult, tvStatus);
+          btnConsult, mainContainer, transcriptionContainer, tvStatus, tvTranscription);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

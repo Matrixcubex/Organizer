@@ -49,7 +49,7 @@ class NotificationHelper(private val context: Context) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val intent = Intent(context, EventNotificationReceiver::class.java).apply {
                 putExtra("event_title", event.title)
-                putExtra("event_description", event.description ?: "Recordatorio")
+                putExtra("event_description", event.description ?: "Recordatorio") // ✅ FIXED: Safe null handling
                 putExtra("event_time", event.time)
                 putExtra("notification_id", event.id.toInt())
             }
@@ -93,7 +93,7 @@ class NotificationHelper(private val context: Context) {
             // Para recordatorios diarios
             val timeParts = event.time.split(":")
             val hour = timeParts[0].toInt()
-            val minute = timeParts.getOrNull(1)?.toInt() ?: 0
+            val minute = timeParts.getOrNull(1)?.toInt() ?: 0 // ✅ FIXED: Safe access
 
             calendar.set(Calendar.HOUR_OF_DAY, hour)
             calendar.set(Calendar.MINUTE, minute)
@@ -106,11 +106,11 @@ class NotificationHelper(private val context: Context) {
         } else {
             // Para eventos con fecha específica
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            val eventDate = dateFormat.parse(event.date)
+            val eventDate = dateFormat.parse(event.date) ?: Date() // ✅ FIXED: Safe parsing
 
             val timeParts = event.time.split(":")
             val hour = timeParts[0].toInt()
-            val minute = timeParts.getOrNull(1)?.toInt() ?: 0
+            val minute = timeParts.getOrNull(1)?.toInt() ?: 0 // ✅ FIXED: Safe access
 
             calendar.time = eventDate
             calendar.set(Calendar.HOUR_OF_DAY, hour)
@@ -118,7 +118,7 @@ class NotificationHelper(private val context: Context) {
             calendar.set(Calendar.SECOND, 0)
 
             // Aplicar recordatorio (30 minutos antes)
-            val reminderMinutes = event.reminder.toIntOrNull() ?: 30
+            val reminderMinutes = event.reminder?.toIntOrNull() ?: 30 // ✅ FIXED: Safe conversion
             calendar.add(Calendar.MINUTE, -reminderMinutes)
         }
 
@@ -142,7 +142,7 @@ class NotificationHelper(private val context: Context) {
         val calendar = Calendar.getInstance()
         val timeParts = event.time.split(":")
         val hour = timeParts[0].toInt()
-        val minute = timeParts.getOrNull(1)?.toInt() ?: 0
+        val minute = timeParts.getOrNull(1)?.toInt() ?: 0 // ✅ FIXED: Safe access
 
         calendar.set(Calendar.HOUR_OF_DAY, hour)
         calendar.set(Calendar.MINUTE, minute)
@@ -156,7 +156,7 @@ class NotificationHelper(private val context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, EventNotificationReceiver::class.java).apply {
             putExtra("event_title", event.title)
-            putExtra("event_description", event.description ?: "Recordatorio diario")
+            putExtra("event_description", event.description ?: "Recordatorio diario") // ✅ FIXED: Safe null handling
             putExtra("event_time", event.time)
             putExtra("is_daily", true)
             putExtra("notification_id", event.id.toInt())
