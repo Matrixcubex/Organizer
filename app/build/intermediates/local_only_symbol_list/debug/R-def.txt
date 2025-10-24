@@ -72,6 +72,7 @@ id btn_chat
 id btn_consult
 id btn_contactar
 id btn_guardar
+id btn_logout
 id btn_recordatorio
 id btn_send
 id btn_ubicacion
@@ -121,6 +122,7 @@ id tvResult
 id tvStatus
 id tv_contact_name
 id tv_contact_phone
+id tv_drive_status
 id tv_message
 id tv_status
 id typeFilterSpinner

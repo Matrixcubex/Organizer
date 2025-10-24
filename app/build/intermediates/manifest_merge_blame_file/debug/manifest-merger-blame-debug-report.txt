@@ -229,11 +229,11 @@
 124                android:value="androidx.startup" />
 124-->[androidx.emoji2:emoji2:1.2.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\21ccc01f74b8a580f40799763f328e7c\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
 125            <meta-data
-125-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\adria\.gradle\caches\8.11.1\transforms\1ab105db6bff68211a09d080e2978406\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+125-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\adria\.gradle\caches\8.11.1\transforms\b15a93976b67d41ec1ae2b131f01ee4a\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
 126                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-126-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\adria\.gradle\caches\8.11.1\transforms\1ab105db6bff68211a09d080e2978406\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+126-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\adria\.gradle\caches\8.11.1\transforms\b15a93976b67d41ec1ae2b131f01ee4a\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
 127                android:value="androidx.startup" />
-127-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\adria\.gradle\caches\8.11.1\transforms\1ab105db6bff68211a09d080e2978406\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+127-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\adria\.gradle\caches\8.11.1\transforms\b15a93976b67d41ec1ae2b131f01ee4a\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
 128            <meta-data
 128-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
 129                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
@@ -242,43 +242,56 @@
 130-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
 131        </provider>
 132
-133        <receiver
-133-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-134            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-134-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-135            android:directBootAware="false"
-135-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-136            android:enabled="true"
-136-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-137            android:exported="true"
-137-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-138            android:permission="android.permission.DUMP" >
-138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-139            <intent-filter>
-139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-140                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-140-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-140-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-141            </intent-filter>
-142            <intent-filter>
-142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-143                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-143-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-143-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-144            </intent-filter>
-145            <intent-filter>
-145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-146                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-146-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-146-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-147            </intent-filter>
-148            <intent-filter>
-148-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-149                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-150            </intent-filter>
-151        </receiver>
-152    </application>
-153
-154</manifest>
+133        <uses-library
+133-->[androidx.window:window:1.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3336ff027500182da29b7bfb77d72fd1\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+134            android:name="androidx.window.extensions"
+134-->[androidx.window:window:1.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3336ff027500182da29b7bfb77d72fd1\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+135            android:required="false" />
+135-->[androidx.window:window:1.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3336ff027500182da29b7bfb77d72fd1\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+136        <uses-library
+136-->[androidx.window:window:1.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3336ff027500182da29b7bfb77d72fd1\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+137            android:name="androidx.window.sidecar"
+137-->[androidx.window:window:1.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3336ff027500182da29b7bfb77d72fd1\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+138            android:required="false" />
+138-->[androidx.window:window:1.0.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\3336ff027500182da29b7bfb77d72fd1\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+139
+140        <receiver
+140-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+141            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+141-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+142            android:directBootAware="false"
+142-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+143            android:enabled="true"
+143-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+144            android:exported="true"
+144-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+145            android:permission="android.permission.DUMP" >
+145-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+146            <intent-filter>
+146-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+147                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+147-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+148            </intent-filter>
+149            <intent-filter>
+149-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+150                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+151            </intent-filter>
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+153                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+153-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+154            </intent-filter>
+155            <intent-filter>
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+156                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\adria\.gradle\caches\8.11.1\transforms\e02ca57a4dd6128ad5af37a8cce8432b\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+157            </intent-filter>
+158        </receiver>
+159    </application>
+160
+161</manifest>

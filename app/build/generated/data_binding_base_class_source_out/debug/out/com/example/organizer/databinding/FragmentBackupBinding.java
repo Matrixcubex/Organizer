@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -29,15 +30,24 @@ public final class FragmentBackupBinding implements ViewBinding {
   public final Button btnLocalRestore;
 
   @NonNull
+  public final Button btnLogout;
+
+  @NonNull
   public final Button btnRestore;
 
+  @NonNull
+  public final TextView tvDriveStatus;
+
   private FragmentBackupBinding(@NonNull LinearLayout rootView, @NonNull Button btnBackup,
-      @NonNull Button btnLocalBackup, @NonNull Button btnLocalRestore, @NonNull Button btnRestore) {
+      @NonNull Button btnLocalBackup, @NonNull Button btnLocalRestore, @NonNull Button btnLogout,
+      @NonNull Button btnRestore, @NonNull TextView tvDriveStatus) {
     this.rootView = rootView;
     this.btnBackup = btnBackup;
     this.btnLocalBackup = btnLocalBackup;
     this.btnLocalRestore = btnLocalRestore;
+    this.btnLogout = btnLogout;
     this.btnRestore = btnRestore;
+    this.tvDriveStatus = tvDriveStatus;
   }
 
   @Override
@@ -85,14 +95,26 @@ public final class FragmentBackupBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_logout;
+      Button btnLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogout == null) {
+        break missingId;
+      }
+
       id = R.id.btnRestore;
       Button btnRestore = ViewBindings.findChildViewById(rootView, id);
       if (btnRestore == null) {
         break missingId;
       }
 
+      id = R.id.tv_drive_status;
+      TextView tvDriveStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvDriveStatus == null) {
+        break missingId;
+      }
+
       return new FragmentBackupBinding((LinearLayout) rootView, btnBackup, btnLocalBackup,
-          btnLocalRestore, btnRestore);
+          btnLocalRestore, btnLogout, btnRestore, tvDriveStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

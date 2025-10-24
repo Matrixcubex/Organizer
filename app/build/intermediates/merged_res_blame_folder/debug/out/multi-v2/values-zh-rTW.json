@@ -4,7 +4,7 @@
             "outputFile": "com.example.organizer.app-mergeDebugResources-3:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\adria\\.gradle\\caches\\8.11.1\\transforms\\ecfeea887f6b64161555190a8184c149\\transformed\\material-1.9.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "source": "C:\\Users\\adria\\.gradle\\caches\\8.11.1\\transforms\\88fce9b95abf98310dd05877b967ae0d\\transformed\\material-1.8.0\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\adria\\.gradle\\caches\\8.11.1\\transforms\\e7b7160ab23fb307391ee7ab5376bf31\\transformed\\navigation-ui-2.3.5\\res\\values-zh-rTW\\values-zh-rTW.xml",
+                    "source": "C:\\Users\\adria\\.gradle\\caches\\8.11.1\\transforms\\ae0eccccaf2c29fe6ab89dc360ea29f5\\transformed\\navigation-ui-2.5.3\\res\\values-zh-rTW\\values-zh-rTW.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
