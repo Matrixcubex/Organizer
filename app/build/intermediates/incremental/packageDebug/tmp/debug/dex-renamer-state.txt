@@ -1,4 +1,4 @@
-#Fri Oct 24 05:13:46 CST 2025
+#Fri Oct 24 05:51:58 CST 2025
 base.0=C\:\\Proyecto2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Proyecto2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Proyecto2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
