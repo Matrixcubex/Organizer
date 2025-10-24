@@ -2847,6 +2847,7 @@ drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_consult
 drawable ic_contactar
+drawable ic_deactivate
 drawable ic_evnt
 drawable ic_examen
 drawable ic_exit

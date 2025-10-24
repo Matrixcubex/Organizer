@@ -1,10 +1,15 @@
 package com.example.organizer.ai
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import com.example.organizer.TelefonoActivity
 import com.example.organizer.UbicacionActivity
 import com.example.organizer.ai.models.Action
 import com.example.organizer.ai.models.UserIntention
@@ -14,9 +19,6 @@ import com.example.organizer.utils.NotificationHelper
 import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.*
-import android.Manifest
-import android.content.pm.PackageManager
-import androidx.core.content.ContextCompat
 
 class CentralAIService(private val context: Context) {
 
@@ -476,7 +478,86 @@ class CentralAIService(private val context: Context) {
 
     private fun makePhoneCall(nombreContacto: String) {
         try {
-            // Primero verificar permisos
+            // Buscar el contacto en la lista de contactos del dispositivo
+            val numeroEncontrado = buscarNumeroContacto(nombreContacto)
+
+            if (numeroEncontrado.isNotEmpty()) {
+                // Si encontramos el número, llamar directamente
+                realizarLlamadaDirecta(numeroEncontrado)
+            } else {
+                // Si no encontramos, abrir TelefonoActivity para que el usuario elija
+                val intent = Intent(context, com.example.organizer.TelefonoActivity::class.java).apply {
+                    putExtra("CONTACTO_BUSCADO", nombreContacto)
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                }
+                context.startActivity(intent)
+            }
+
+        } catch (e: Exception) {
+            Log.e("PHONE_CALL", "Error: ${e.message}")
+            Toast.makeText(context, "Error al buscar contacto", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun buscarNumeroContacto(nombreContacto: String): String {
+        return try {
+            val projection = arrayOf(
+                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+                ContactsContract.CommonDataKinds.Phone.NUMBER
+            )
+
+            val cursor = context.contentResolver.query(
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                projection,
+                null,
+                null,
+                null
+            )
+
+            var numeroEncontrado = ""
+            val nombreBusqueda = nombreContacto.lowercase()
+                .replace("á", "a")
+                .replace("é", "e")
+                .replace("í", "i")
+                .replace("ó", "o")
+                .replace("ú", "u")
+
+            cursor?.use { c ->
+                val nameIndex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+                val numberIndex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+
+                while (c.moveToNext()) {
+                    val nombre = c.getString(nameIndex) ?: ""
+                    val telefono = c.getString(numberIndex) ?: ""
+
+                    val nombreLimpio = nombre.lowercase()
+                        .replace("á", "a")
+                        .replace("é", "e")
+                        .replace("í", "i")
+                        .replace("ó", "o")
+                        .replace("ú", "u")
+
+                    // Búsqueda flexible: contiene el nombre (sin acentos)
+                    if (nombreLimpio.contains(nombreBusqueda)) {
+                        numeroEncontrado = telefono
+                        Log.d("CONTACT_FOUND", "Encontrado: $nombre - $telefono")
+                        break // Tomar el primer contacto que coincida
+                    }
+                }
+            }
+
+            cursor?.close()
+            numeroEncontrado
+
+        } catch (e: Exception) {
+            Log.e("CONTACT_SEARCH", "Error buscando contacto: ${e.message}")
+            ""
+        }
+    }
+
+    private fun realizarLlamadaDirecta(numeroTelefono: String) {
+        try {
+            // Verificar permiso de llamada
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE)
                 != PackageManager.PERMISSION_GRANTED) {
 
@@ -484,24 +565,21 @@ class CentralAIService(private val context: Context) {
                 return
             }
 
-            // Obtener el número del contacto (aquí necesitarías buscar en contactos)
-            // Por ahora, como ejemplo, usar un número fijo o buscar
-            val numeroTelefono = "123456789" // Esto debería venir de la búsqueda de contactos
-
             val intent = Intent(Intent.ACTION_CALL).apply {
-                data = Uri.parse("tel:$numeroTelefono") // ← ¡ESTO FALTA!
+                data = Uri.parse("tel:${numeroTelefono.filter { it.isDigit() }}")
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
 
             if (intent.resolveActivity(context.packageManager) != null) {
                 context.startActivity(intent)
+                Toast.makeText(context, "Llamando...", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(context, "No hay aplicación para llamar", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "No se puede realizar la llamada", Toast.LENGTH_SHORT).show()
             }
 
         } catch (e: Exception) {
-            Log.e("PHONE_CALL", "Error: ${e.message}")
-            Toast.makeText(context, "Error al realizar llamada", Toast.LENGTH_SHORT).show()
+            Log.e("DIRECT_CALL", "Error en llamada directa: ${e.message}")
+            Toast.makeText(context, "Error al llamar", Toast.LENGTH_SHORT).show()
         }
     }
 

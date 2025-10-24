@@ -8,12 +8,12 @@
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_consult.xml"
     },
     {
-        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_home.xml"
-    },
-    {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\fragment_about.xml",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\fragment_home.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\layout_message_assistant.xml",
@@ -24,8 +24,8 @@
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_chat.xml"
     },
     {
-        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/activity_web_search.xml",
-        "source": "com.example.organizer.app-main-7:/layout/activity_web_search.xml"
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\activity_web_search.xml",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_web_search.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\activity_ubicacion.xml",
@@ -38,6 +38,10 @@
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\layout_message_user.xml",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\layout_message_user.xml"
+    },
+    {
+        "merged": "com.example.organizer.app-mergeDebugResources-4:/layout/fragment_consult.xml",
+        "source": "com.example.organizer.app-main-7:/layout/fragment_consult.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-mergeDebugResources-4:\\layout\\activity_recordatorio.xml",

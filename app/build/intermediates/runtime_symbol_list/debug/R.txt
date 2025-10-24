@@ -2846,6 +2846,7 @@ int drawable ic_clear_black_24 0x7f0800ab
 int drawable ic_clock_black_24dp 0x7f0800ac
 int drawable ic_consult 0x7f0800ad
 int drawable ic_contactar 0x7f0800ae
+int drawable ic_deactivate 0x7f080115
 int drawable ic_evnt 0x7f0800af
 int drawable ic_examen 0x7f0800b0
 int drawable ic_exit 0x7f0800b1

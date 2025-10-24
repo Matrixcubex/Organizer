@@ -28,6 +28,10 @@
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_notification.xml"
     },
     {
+        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_deactivate.png.flat",
+        "source": "com.example.organizer.app-main-7:/drawable/ic_deactivate.png"
+    },
+    {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_telefono.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_telefono.xml"
     },
@@ -96,6 +100,10 @@
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_activate.png.flat",
+        "source": "com.example.organizer.app-main-7:/drawable/ic_activate.png"
+    },
+    {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_bubble_user.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\bubble_user.xml"
     },
@@ -122,6 +130,10 @@
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_web_search.xml.flat",
+        "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_web_search.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_consult.xml.flat",
@@ -172,16 +184,16 @@
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_backup.xml"
     },
     {
+        "merged": "com.example.organizer.app-merged_res-5:/drawable_ic_ubicacion.png.flat",
+        "source": "com.example.organizer.app-main-7:/drawable/ic_ubicacion.png"
+    },
+    {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\layout_activity_ubicacion.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\layout\\activity_ubicacion.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_info.xml.flat",
         "source": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-main-7:\\drawable\\ic_info.xml"
-    },
-    {
-        "merged": "com.example.organizer.app-merged_res-5:/layout_activity_web_search.xml.flat",
-        "source": "com.example.organizer.app-main-7:/layout/activity_web_search.xml"
     },
     {
         "merged": "C:\\Users\\adria\\.gradle\\daemon\\8.11.1\\com.example.organizer.app-merged_res-5:\\drawable_ic_otros.xml.flat",

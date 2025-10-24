@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             processVoiceCommand(lastRecognizedText)
         }
 
-        speak("Asistente desactivado")
+        speak("Atendiendo solicitud")
     }
 
     // ✅ ESCUCHA CONTINUA
@@ -428,7 +428,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             transcriptionContainer.visibility = LinearLayout.VISIBLE
         } else {
             tvStatus.text = "Asistente inactivo"
-            btnActivate.setImageResource(R.drawable.ic_activate) // Cambiar a ícono de activar
+            btnActivate.setImageResource(R.drawable.ic_deactivate) // Cambiar a ícono de activar
             transcriptionContainer.visibility = LinearLayout.VISIBLE
         }
     }
